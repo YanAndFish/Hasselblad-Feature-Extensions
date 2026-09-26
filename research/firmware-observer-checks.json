@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "firmware": "4.2.0",
+  "hardwareRequests": 0,
+  "binaries": {
+    "librcam.so": "72ebc8deebce4a29047c475e77ab4edbf2860abb1f572fea45260fe17ad0bda5",
+    "camera-service": "fbcf828f73bca13f0c8b95e7dd0b95ac483ae36954ec06179098c8a1a65f9f82",
+    "libdcam_base.so": "b6e33f0ee76e4d056e519574a0a2f3860935252010fec676be320e304a7ff81c",
+    "dji_sys": "e20a9060550c23ae60f8bb3e7ce74de065c24da969c2502038ffadc3ebf065c7",
+    "libduml_util.so": "71dcc8de23133d25c415be948b02b6f43f02f05408a5349463a3dc51cc419d11"
+  },
+  "configs": {
+    "/etc/dji.json": "15a1fde3489b230249e4b2bbe87d409f8e7ea0315f44b0d854d261d0e945e892",
+    "/bin/setup_usb.sh": "1a2d593ae6d7c777deef1b205e91d7f08e185fc61070c021d0317d8fad8304cd",
+    "/bin/collect_logs.sh": "c3d918f3ced2d2eced41c2fb441ee8eecb5a5d37c28d2a5a1caaf2a0e7c2a0cc",
+    "/bin/cam_log_dump.sh": "652b7f80ca5d7bc49a674a38b21953f6f8c481e5f9ed5a386d7930a08329e0d1"
+  },
+  "eventChecks": 60,
+  "chainChecks": 12,
+  "checks": [
+    {
+      "id": "exposure_requested",
+      "checks": [
+        "literal",
+        "symbol",
+        "printCall",
+        "module",
+        "level",
+        "sourceLine"
+      ],
+      "ok": true
+    },
+    {
+      "id": "lens_capabilities_failed",
+      "checks": [
+        "literal",
+        "symbol",
+        "printCall",
+        "module",
+        "level",
+        "sourceLine"
+      ],
+      "ok": true
+    },
+    {
+      "id": "lens_not_hbl",
+      "checks": [
+        "literal",
+        "symbol",
+        "printCall",
+        "module",
+        "level",
+        "sourceLine"
+      ],
+      "ok": true
+    },
+    {
+      "id": "true_exposure_eshutter",
+      "checks": [
+        "literal",
+        "symbol",
+        "printCall",
+        "module",
+        "level",
+        "sourceLine"
+      ],
+      "ok": true
+    },
+    {
+      "id": "flash_sync_failed",
+      "checks": [
+        "literal",
+        "symbol",
+        "printCall",
+        "module",
+        "level",
+        "sourceLine"
+      ],
+      "ok": true
+    },
+    {
+      "id": "eshutter_parameters",
+      "checks": [
+        "literal",
+        "symbol",
+        "printCall",
+        "module",
+        "level",
+        "sourceLine"
+      ],
+      "ok": true
+    },
+    {
+      "id": "set_exposure_failed",
+      "checks": [
+        "literal",
+        "symbol",
+        "printCall",
+        "module",
+        "level",
+        "sourceLine"
+      ],
+      "ok": true
+    },
+    {
+      "id": "sensor_flush_failed",
+      "checks": [
+        "literal",
+        "symbol",
+        "printCall",
+        "module",
+        "level",
+        "sourceLine"
+      ],
+      "ok": true
+    },
+    {
+      "id": "long_exposure_branch",
+      "checks": [
+        "literal",
+        "symbol",
+        "printCall",
+        "module",
+        "level",
+        "sourceLine"
+      ],
+      "ok": true
+    },
+    {
+      "id": "fsync_setup_failed",
+      "checks": [
+        "literal",
+        "symbol",
+        "printCall",
+        "module",
+        "level",
+        "sourceLine"
+      ],
+      "ok": true
+    },
+    {
+      "binary": "camera-service",
+      "va": "0x1c80d8",
+      "target": "dcam_dbg_cmd@plt",
+      "ok": true
+    },
+    {
+      "binary": "camera-service",
+      "va": "0x26c9f4",
+      "target": "duss_event_create_client@plt",
+      "ok": true
+    },
+    {
+      "binary": "libdcam_base.so",
+      "va": "0x14ad4",
+      "target": "looper_message_send_and_wait@plt",
+      "ok": true
+    },
+    {
+      "binary": "libdcam_base.so",
+      "va": "0x15498",
+      "target": "socket@plt",
+      "ok": true
+    },
+    {
+      "binary": "libdcam_base.so",
+      "va": "0x155b8",
+      "target": "bind@plt",
+      "ok": true
+    },
+    {
+      "binary": "libdcam_base.so",
+      "va": "0x17a7c",
+      "target": "__vsnprintf_chk@plt",
+      "ok": true
+    },
+    {
+      "binary": "dji_sys",
+      "va": "0x288e4",
+      "target": "sys_route_control_ttygs_channel",
+      "ok": true
+    },
+    {
+      "binary": "dji_sys",
+      "va": "0x288f0",
+      "target": "sys_route_control_ttygs_channel",
+      "ok": true
+    },
+    {
+      "binary": "dji_sys",
+      "va": "0x34360",
+      "target": "duss_event_control_rt_byname@plt",
+      "ok": true
+    },
+    {
+      "binary": "libduml_util.so",
+      "va": "0x1b8c8",
+      "target": "__android_log_write@plt",
+      "ok": true
+    },
+    {
+      "binary": "libduml_util.so",
+      "va": "0x1b97c",
+      "target": "__android_log_buf_write@plt",
+      "ok": true
+    },
+    {
+      "binary": "libduml_util.so",
+      "va": "0x1bd34",
+      "target": "sendto@plt",
+      "ok": true
+    }
+  ],
+  "limitations": [
+    "默认路由值不是实机运行状态",
+    "静态发射点不证明实机日志存在",
+    "ADB 合法开启入口和实机读取未验证"
+  ]
+}

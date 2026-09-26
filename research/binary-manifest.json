@@ -1,0 +1,89 @@
+{
+  "firmware": "4.2.0",
+  "binaries": [
+    {
+      "partition": "system",
+      "path": "/bin/phocus",
+      "size": 3287080,
+      "sha256": "56c9a777fb9c5ed228fc32b47013822b34bd9109822871089700d23dd40a1516"
+    },
+    {
+      "partition": "system",
+      "path": "/lib64/librcam.so",
+      "size": 2976744,
+      "sha256": "72ebc8deebce4a29047c475e77ab4edbf2860abb1f572fea45260fe17ad0bda5"
+    },
+    {
+      "partition": "system",
+      "path": "/bin/camera-system",
+      "size": 7969968,
+      "sha256": "bf854a21881148565ff2cc00376426c37a2b82fed94c653abf024e23ed4ceda6"
+    },
+    {
+      "partition": "system",
+      "path": "/bin/camera-service",
+      "size": 11294528,
+      "sha256": "fbcf828f73bca13f0c8b95e7dd0b95ac483ae36954ec06179098c8a1a65f9f82"
+    },
+    {
+      "partition": "system",
+      "path": "/lib64/libdcam_base.so",
+      "size": 726776,
+      "sha256": "b6e33f0ee76e4d056e519574a0a2f3860935252010fec676be320e304a7ff81c"
+    },
+    {
+      "partition": "system",
+      "path": "/lib64/libdcam_frwk.so",
+      "size": 1255576,
+      "sha256": "6d26f038175fc736dfc3e6b67c93f2d997895014be8e5c3040654cfb26bb501e"
+    },
+    {
+      "partition": "system",
+      "path": "/lib64/libduml_frwk.so",
+      "size": 1527752,
+      "sha256": "bb110a2c94e6ed5b69a99048f3a30db5760754ec12ff4d1bdd7f6f431139b81d"
+    },
+    {
+      "partition": "system",
+      "path": "/lib64/libduml_hal.so",
+      "size": 592832,
+      "sha256": "77875f6f47a2137e5461c61789d44fdd8537e7359c8d7b43ec7ee4737fd15bb3"
+    },
+    {
+      "partition": "system",
+      "path": "/lib64/libduml_util.so",
+      "size": 529776,
+      "sha256": "71dcc8de23133d25c415be948b02b6f43f02f05408a5349463a3dc51cc419d11"
+    },
+    {
+      "partition": "system",
+      "path": "/bin/dji_sys",
+      "size": 897808,
+      "sha256": "e20a9060550c23ae60f8bb3e7ce74de065c24da969c2502038ffadc3ebf065c7"
+    },
+    {
+      "partition": "system",
+      "path": "/bin/bulk",
+      "size": 86916,
+      "sha256": "d1b9e624e4587e19a1cb9f0616de3536bc30ce096b93651e9512972e54ea3266"
+    },
+    {
+      "partition": "system",
+      "path": "/lib64/lib_usb_transfer.so",
+      "size": 133936,
+      "sha256": "ae80afb6415366effd214b8a85e0c27caadbbde518ec7ceaf2a2e07a357d849d"
+    },
+    {
+      "partition": "system",
+      "path": "/bin/msg2dbus",
+      "size": 2886288,
+      "sha256": "c02c2cd83ec9e5d7862659f05328927b7faa3e57789dd4aa0fd9bc427ad13a43"
+    },
+    {
+      "partition": "system",
+      "path": "/bin/usb_bulk_raw_hbl",
+      "size": 68456,
+      "sha256": "918d1c96a7e269a16b7759f93fb79bc5f47a2b6d973fc96e637e516a95afa90f"
+    }
+  ]
+}

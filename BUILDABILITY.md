@@ -39,3 +39,13 @@ python -B x2d/flash-ui/CodeTests/smoke.py
 浏览器直接打开 `x1d/shutter-effects/index.html` 可以预览纯动画，未附带声音。
 
 这些结果不代表真实设备集成、Qt 5.5 机内运行或完整更新包构建已通过。
+
+## 恢复的业务核心
+
+已补回完整源码范围，历史构建脚本仍有本地缓存和中间产物依赖。以下新入口不使用旧构建日志，直接编译持久化版本实际使用的引闪策略核心及声音路由核心；不是重新编写的演示状态机。
+
+```powershell
+python -B scripts/build_core.py --compiler zig --driver zig --build-dir ../hfe-build/core
+```
+
+也可用 `--compiler clang++ --driver cxx` 指定 C++11 编译器。此入口仅产出主机测试程序，不产出相机安装包。完整相机更新还需整理 ARM 工具链、运行库、用户合法自备的厂商输入及加载适配层；不能将主机测试成功当作这些依赖已解决。

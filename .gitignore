@@ -4,6 +4,7 @@
 .app-data/
 .work-orders/
 node_modules/
+.npm-cache/
 __pycache__/
 *.pyc
 **/build/

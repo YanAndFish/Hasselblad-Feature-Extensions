@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "nativeChanges": [
+    "formal_policy.h"
+  ],
+  "onlyMechanicalSourceChanged": true,
+  "electronicPathUnchanged": true,
+  "delayTableUnchanged": true,
+  "checks": 6983,
+  "hardwareRequests": 0
+}

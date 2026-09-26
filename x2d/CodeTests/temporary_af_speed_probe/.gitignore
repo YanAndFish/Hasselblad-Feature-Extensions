@@ -1,0 +1,4 @@
+.zig-cache/
+.zig-global/
+__pycache__/
+transaction-test.sh
