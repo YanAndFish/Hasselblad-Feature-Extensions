@@ -6,8 +6,11 @@ An independent, unofficial source repository for camera-feature research. It pre
 
 | Area | Entry | Public scope |
 | --- | --- | --- |
-| X2D pixel synthesis | [Pixel research](x2d/CodeTests/pixel_shift_rgb/README.md) | Four/six-frame merging, batched parallel reads, background writes and a plain-memory pipeline; the six-frame target is approximately 400 MP |
-| X2D target policies | [X2D index](x2d/README.md) | Eye preference, grayscale template tracking, previews and EXIF tools; no camera backend |
+| X2D pixel-shift area-array scan synthesis | [Pixel research](x2d/CodeTests/pixel_shift_rgb/README.md) | Reconstruction from four/six positional samples, batched reads and background writes; the six-sample target is approximately 400 MP |
+| X2D autofocus optimization | [AF research](x2d/CodeTests/temporary_af_speed_probe/README.md) | Controlled sweep parameters, speed limits and fine-focus transitions; historical candidates, not a universally accepted AF upgrade |
+| X2D face/eye target optimization | [Eye preference](x2d/CodeTests/face_edge_fix/README.md) | Left/right choice, loss-delay switching and face fallback; target policy, not a new detector or camera controller |
+| X2D electronic-shutter flash | [Synchronization research](x2d/research/history/ESHUTTER_BRANCH_ANALYSIS.md) | Ordinary-flash synchronization under suitable exposure conditions; no HSS or accepted on-camera synchronization claim |
+| X2D subject tracking | [Grayscale tracker](x2d/subject-tracking/README.md) | Template-based region retention and stale-observation checks; no neural identity recognition |
 | X1D II face priority | [X1D II](X1D2/README.md) | Original excerpts and a BSD-licensed detector; the complete publisher still has missing dependencies |
 | X1D components | [X1D](x1d/README.md) | Flash/settings policies, replay research, audio routing, animation and offline resource tools |
 | X2D II | [X2D II](x2d2/README.md) | Topic index, without a completed on-camera adaptation |
@@ -19,9 +22,9 @@ X1D II and X2D II are different models. X1D II face-priority excerpts are in `X1
 
 ### Pixel Overclock: approximately 400 MP
 
-The six-frame research path reconstructs a **23326 × 17498** image: **408,158,348 pixels**, approximately **408 MP**. Six input frames describe the capture group, not a 600 MP output or a change to the sensor's physical pixel count. A four-frame reference path is also retained for algorithm comparisons.
+Pixel Overclock uses **pixel-shift area-array scanning and synthesis**: samples from different pixel-shift positions are mapped to a denser spatial grid. The six-sample research path reconstructs a **23326 × 17498** image: **408,158,348 pixels**, approximately **408 MP**. Six input images count the positional samples, not a 600 MP output or a change to the sensor's physical pixel count. A four-sample reference path is retained for algorithm comparisons.
 
-The public source provides multi-frame synthesis, batched parallel reads, compute partitions, background writes, and plain-memory pipeline components. Synthetic-input comparisons verify algorithm consistency; they do not establish an equivalent gain in optical detail. Scene motion, lens resolution, sampling alignment and processing quality still affect the result. Actual camera capture, rendering, 3FR/HEIF saving and album integration are outside this public build. See [pixel research](x2d/CodeTests/pixel_shift_rgb/README.md).
+The public source provides pixel-shift scan reconstruction, batched parallel reads, compute partitions, background writes, and plain-memory pipeline components. Synthetic-input comparisons verify algorithm consistency; they do not establish an equivalent gain in optical detail. Scene motion, lens resolution, sampling alignment and processing quality still affect the result. Actual camera capture, rendering, final-file saving and album integration are outside this public build. See [pixel research](x2d/CodeTests/pixel_shift_rgb/README.md).
 
 ### Autofocus optimization research
 
@@ -32,6 +35,25 @@ This work investigates controlled fast-sweep parameters, speed limits, transitio
 The public eye-preference policy covers left/right choice, choosing the eye nearest a supplied position, delayed switching when an eye is lost, returning to a preferred eye after it reappears, and falling back to a valid face target. Missing eyes do not reuse stale coordinates or display a fabricated old eye box. This is target-selection logic, not a new face detector or an accepted camera AF controller. See [eye preference](x2d/CodeTests/face_edge_fix/README.md).
 
 The separate [grayscale tracker](x2d/subject-tracking/README.md) retains a bounded target region and rejects stale observations; it does not claim neural face detection or identity recognition. X1D II's licensed detector is a separate module and does not establish X2D integration.
+
+### Electronic-shutter flash synchronization
+
+This research investigates enabling ordinary flash during electronic-shutter capture under suitable exposure conditions. It is separate from high-speed synchronization (HSS) and does not establish a measured, generally safe shutter-speed threshold. Existing dynamic flash compensation must remain intact; any additional wireless timing adjustment is a separate contribution, with zero adjustment preserving the original behavior. The public scope is a sanitized research summary and an independent offline flash UI, not an installable synchronization implementation or proof of physical flash timing. See [synchronization scope](x2d/research/history/ESHUTTER_BRANCH_ANALYSIS.md) and [offline flash UI](x2d/flash-ui/README.md).
+
+## X1D research highlights
+
+- **Autofocus behavior:** research into sweep/fine-focus stages, bounded parameter choices and settings interaction. Historical candidates require their own dependencies and accuracy checks; they are not a universal focus-speed claim.
+- **Replay and image output:** full-size JPEG and embedded-preview separation, loading/memory lifetime, and display-color conversion with explicit ICC inputs. A responsive preview and full-resolution inspection are distinct goals.
+- **Flash and exposure timing:** ordinary-flash policies, group/power settings and optional half-press updates, with original compensation responsibilities preserved. Offline policy checks do not establish physical synchronization or radio transmission.
+- **UI and state restoration:** original animation, abstract audio routing, settings persistence and failure recovery. No audio assets, manufacturer resources or complete device installer are supplied.
+
+See [first-generation X1D](x1d/README.md) and the [build scope](BUILD_INPUTS.md) for available components and remaining dependencies.
+
+## X1D II research highlights
+
+The second-generation X1D work focuses on **face-priority single autofocus (AF-S)**: validating detections, selecting a target, exchanging bounded target state and processing previews. Conditional eye-geometry candidates are part of the source excerpts, without an accepted on-camera eye-AF claim.
+
+The public module includes original selection/exchange/publisher excerpts and a fixed BSD-licensed detector. The detector builds independently and passed a synthetic blank-image call; the complete publisher still lacks four project headers, so full AF integration and detection-quality acceptance are not claimed. See [X1D II](X1D2/README.md). This is separate from X2D II, whose current public content remains a [topic index](x2d2/README.md).
 
 ## Offline verification
 
@@ -66,8 +88,11 @@ Original work uses [MIT](LICENSE). The detector in `X1D2/face-afs/vendor/libface
 
 | 方向 | 阅读入口 | 公开内容 |
 | --- | --- | --- |
-| X2D 像素超频 | [像素合成](x2d/CodeTests/pixel_shift_rgb/README.md) | 四帧／六帧合成、分批并行读取、后台写入与普通内存流水线；六帧目标输出约四亿像素 |
-| X2D 选择与跟踪 | [X2D 索引](x2d/README.md) | 左右眼选择、灰度模板跟踪、预览和 EXIF 工具；不含相机后端 |
+| X2D 像素位移面阵扫描合成 | [像素超频](x2d/CodeTests/pixel_shift_rgb/README.md) | 四／六个位置采样的空间重建、分批读取与后台写入；六合一目标输出约四亿像素 |
+| X2D 对焦优化 | [对焦研究](x2d/CodeTests/temporary_af_speed_probe/README.md) | 受控快扫参数、速度限制与精扫衔接；历史候选，不是已普遍验收的对焦升级 |
+| X2D 人脸／人眼目标优化 | [人眼偏好](x2d/CodeTests/face_edge_fix/README.md) | 左右眼选择、丢失延迟切换与人脸回退；目标策略，不是新增检测器或机内控制器 |
+| X2D 电子快门闪光 | [同步研究](x2d/research/history/ESHUTTER_BRANCH_ANALYSIS.md) | 合适曝光条件下的普通闪光同步研究；不涉及 HSS，未声明机内同步验收通过 |
+| X2D 主体跟踪 | [灰度模板](x2d/subject-tracking/README.md) | 目标区域保持与过期观测检查；不宣称神经身份识别 |
 | X1D II 人脸优先 | [X1D II](X1D2/README.md) | 自写候选片段及 BSD 开源检测库；完整发布器仍缺依赖 |
 | X1D 通用组件 | [X1D](x1d/README.md) | 引闪与设置策略、回放研究、声音路由、动画和离线资源工具 |
 | X2D II | [X2D II](x2d2/README.md) | 机型资料索引；不提供已完成的机内适配 |
@@ -79,9 +104,9 @@ X1D II 与 X2D II 是不同机型；二代人脸优先源码位于 `X1D2/`。历
 
 #### 像素超频：约四亿像素
 
-六合一研究路径的目标图像为 **23326 × 17498**，共 **408,158,348 像素**，约 **4.08 亿像素**。六张指输入的拍摄组数，不是六亿像素输出，也不改变传感器的物理像素数量；源码还保留四帧参考路径供算法对照。
+像素超频采用**像素位移面阵扫描合成**：把不同位移位置取得的采样映射到更密的空间像素阵列。六合一研究路径的目标图像为 **23326 × 17498**，共 **408,158,348 像素**，约 **4.08 亿像素**。六张指位移采样数量，不是六亿像素输出，也不改变传感器的物理像素数量；源码还保留四个位置采样的参考路径供算法对照。
 
-公开部分提供多帧合成、分批并行读取、计算分区、后台写入和通用内存流水线。自造输入对照证明算法结果一致，不等于光学细节也提高同样倍数；场景运动、镜头分辨力、采样对齐和处理质量仍会影响结果。实际相机拍摄、显影、3FR／HEIF 保存和相册接入不在公开构建范围，见[像素研究](x2d/CodeTests/pixel_shift_rgb/README.md)。
+公开部分提供位移扫描重建、分批并行读取、计算分区、后台写入和通用内存流水线。自造输入对照证明算法结果一致，不等于光学细节也提高同样倍数；场景运动、镜头分辨力、采样对齐和处理质量仍会影响结果。实际相机拍摄、显影、成片保存和相册接入不在公开构建范围，见[像素研究](x2d/CodeTests/pixel_shift_rgb/README.md)。
 
 #### 对焦优化研究
 
@@ -92,6 +117,25 @@ X1D II 与 X2D II 是不同机型；二代人脸优先源码位于 `X1D2/`。历
 公开的人眼偏好策略包括左右眼选择、按给定位置选择最近眼睛、丢失后的延迟切换、偏好眼重新出现后的恢复，以及回退到有效的人脸目标。眼睛丢失时不继续使用旧坐标，也不伪画上一帧眼框。这是目标选择逻辑，不是新增的人脸检测器或已验收的机内对焦控制器，见[人眼偏好](x2d/CodeTests/face_edge_fix/README.md)。
 
 独立的[灰度模板跟踪](x2d/subject-tracking/README.md)用于有限时长的目标区域保持和过期观测拒绝，不宣称神经人脸检测或身份识别。X1D II 的开源检测库属于另一个模块，不能据此认定 X2D 已完成接入。
+
+#### 电子快门闪光同步
+
+研究目标是在合适曝光条件下，让电子快门拍摄使用普通闪光同步。它与高速同步 HSS 分开，也没有给出经测量确认、普遍可靠的快门速度阈值。原有动态闪光补偿必须保留；额外无线时序调整应独立叠加，零值保持原有行为。公开内容为脱敏研究摘要与独立离线引闪界面，不是可安装的同步实现，也不证明物理闪光时序已验收，见[同步范围](x2d/research/history/ESHUTTER_BRANCH_ANALYSIS.md)和[离线引闪界面](x2d/flash-ui/README.md)。
+
+### 第一代 X1D 主要研究内容
+
+- **对焦行为**：快扫／精扫阶段、受控参数与设置交互研究。历史候选仍需对应依赖与精度验证，不宣称普遍的对焦提速。
+- **回放与图像输出**：全尺寸 JPEG 和内嵌预览的区分、加载与内存生命周期，以及显式 ICC 输入的显示颜色转换。快速预览与全分辨率细节检查是两个目标。
+- **引闪与曝光时序**：普通闪光策略、分组／功率设置与可选半按更新，保留原有补偿责任。离线策略检查不证明物理同步或无线发射已完成。
+- **界面与状态恢复**：原创动画、抽象声音路由、设置持久化和失败恢复，不附带音频、厂商资源或完整设备安装包。
+
+可公开组件和依赖缺口见[第一代 X1D](x1d/README.md)与[构建范围](BUILD_INPUTS.md)。
+
+### X1D 二代主要研究内容
+
+重点为**人脸优先单次对焦 AF-S**：检测结果检查、目标选择、有界目标状态交换和预览处理。源码片段包含受条件约束的眼部几何候选，不宣称机内人眼对焦已验收。
+
+公开模块包含项目自写的选择／交换／发布器片段，以及固定版本的 BSD 开源检测库。检测库已独立编译并通过合成空白图调用；完整发布器仍缺四个项目头文件，不宣称完整对焦接入或检测质量已验收，见 [X1D II](X1D2/README.md)。它与 X2D 二代分开，后者当前公开内容仍为[主题索引](x2d2/README.md)。
 
 ### 离线验证
 

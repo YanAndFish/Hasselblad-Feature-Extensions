@@ -37,7 +37,7 @@
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "c9f01beaa3efa0108c1a257d0747690129b91b7606383805d9a59260dee725bc"
+      "public_sha256": "88a1162f9a406baec172c9b7dd68c92872f27aabe4f677fe35bf19e0ec64f922"
     },
     {
       "path": "README.md",
@@ -54,7 +54,7 @@
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "226e6213f1ca037c48b375e2065c19813447ad3f85fbdbe7832076629caa8207"
+      "public_sha256": "221417f47cb2ea83ab5a6b6214bd506b90fca446e496b9e1ec27415fc752da9b"
     },
     {
       "path": "publication/x2d-update-validation.json",
@@ -323,7 +323,7 @@
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "9bfbd2906e000775389edbc1ea97c1a23cef22c88e7d5923a842b37b5d765a09"
+      "public_sha256": "d64179fcb72e80f7f67e47940c751323fb480eacfc1bb751905a141fd29dddf8"
     },
     {
       "path": "x2d/CodeTests/pixel_shift_rgb/add_native_jpeg_preview.py",

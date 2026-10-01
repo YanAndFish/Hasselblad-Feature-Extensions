@@ -4,8 +4,10 @@ Public entry points focus on original pixel synthesis, image utilities, target p
 
 | Component | Entry and scope |
 | --- | --- |
-| Pixel synthesis | [Four/six-frame merge](CodeTests/pixel_shift_rgb/README.md), approximately 400 MP target and plain-memory implementation |
+| Pixel-shift scan synthesis | [Area-array reconstruction](CodeTests/pixel_shift_rgb/README.md) from four/six positional samples, approximately 400 MP target and plain-memory implementation |
 | Eye preference | [Selection policy](CodeTests/face_edge_fix/README.md), without an autofocus device backend |
+| Autofocus optimization | [Research candidates](CodeTests/temporary_af_speed_probe/README.md), controlled sweep parameters and fine-focus transitions; not an accepted universal upgrade |
+| Electronic-shutter flash | [Synchronization scope](research/history/ESHUTTER_BRANCH_ANALYSIS.md), ordinary flash under suitable exposure conditions; no HSS or measured universal threshold |
 | Subject tracking | [Grayscale core](subject-tracking/README.md) and [checks](CodeTests/subject_tracking/README.md) |
 | Display controls | [Design scope](CodeTests/display_controls/README.md), without a device implementation |
 | Flash UI | [Offline QML](flash-ui/README.md), using original icons |
@@ -23,8 +25,10 @@ See [build methods](../BUILDABILITY.md) and [updates](../PUBLIC_UPDATES.md). Thi
 
 | 组件 | 内容与入口 |
 | --- | --- |
-| 像素超频 | [四帧／六帧合成](CodeTests/pixel_shift_rgb/README.md)，约四亿像素目标输出与通用内存实现 |
+| 像素超频 | [像素位移面阵扫描合成](CodeTests/pixel_shift_rgb/README.md)，四／六位置采样，约四亿像素目标输出与通用内存实现 |
 | 人眼选择 | [选择策略](CodeTests/face_edge_fix/README.md)，不提供对焦设备后端 |
+| 对焦优化 | [研究候选](CodeTests/temporary_af_speed_probe/README.md)，受控快扫参数与精扫衔接；不是已普遍验收的升级 |
+| 电子快门闪光 | [同步范围](research/history/ESHUTTER_BRANCH_ANALYSIS.md)，合适曝光条件下的普通同步；不涉及 HSS 或实测通用阈值 |
 | 主体跟踪 | [灰度模板核心](subject-tracking/README.md)及[测试](CodeTests/subject_tracking/README.md) |
 | 显示控制 | [设计说明](CodeTests/display_controls/README.md)，尚不提供设备实现 |
 | 引闪界面 | [离线 QML 页面](flash-ui/README.md)，使用原创图标 |

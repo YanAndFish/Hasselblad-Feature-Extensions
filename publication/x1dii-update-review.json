@@ -254,7 +254,7 @@
         "更新过时说明并移除内部施工与设备细节"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "c9f01beaa3efa0108c1a257d0747690129b91b7606383805d9a59260dee725bc"
+      "public_sha256": "88a1162f9a406baec172c9b7dd68c92872f27aabe4f677fe35bf19e0ec64f922"
     },
     {
       "path": "PUBLICATION_SCOPE.md",
@@ -288,7 +288,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "226e6213f1ca037c48b375e2065c19813447ad3f85fbdbe7832076629caa8207"
+      "public_sha256": "221417f47cb2ea83ab5a6b6214bd506b90fca446e496b9e1ec27415fc752da9b"
     },
     {
       "path": "research/DEBUG_READ_BATCH.md",
@@ -2703,7 +2703,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "9bfbd2906e000775389edbc1ea97c1a23cef22c88e7d5923a842b37b5d765a09"
+      "public_sha256": "d64179fcb72e80f7f67e47940c751323fb480eacfc1bb751905a141fd29dddf8"
     },
     {
       "path": "x2d/CodeTests/README.md",
@@ -3055,7 +3055,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "09d30ad21e3f5385cf37853349e752ba1138e13d7ce669e5b9bc697168eb955a"
+      "public_sha256": "3cb14b9d34ab60573963f560a105d9fa07d1baf86c434da13ba3d83bc3e75f11"
     },
     {
       "path": "x2d/research/4.2.0/ONBOARD_RADIO.md",
@@ -3121,7 +3121,7 @@
         "更新过时说明并移除内部施工与设备细节"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "b7009e433af573e21c3048b0065c41e9f1e088f6a97f67bb20dbef23432d04d6"
+      "public_sha256": "f5f056d480b460c8713757335e876b7bf23c3a0bf4684a22cae4ff3fb065f68d"
     },
     {
       "path": "x2d/research/history/FIRMWARE_DEBUG_CHANNEL.md",
@@ -3269,7 +3269,7 @@
       "origin": "本项目自写公开入口与实际离线检查",
       "license": "MIT用于原创内容",
       "review": "无设备、照片或厂商输入",
-      "public_sha256": "4e22978970a195feaf60bee271ef760ca677ee42f6f50fbb80ad8af48ac0d868"
+      "public_sha256": "6ba863f1399402eb1bbce8fabedf7a76ca20346a023aea0492563d6c0b842be1"
     }
   ]
 }

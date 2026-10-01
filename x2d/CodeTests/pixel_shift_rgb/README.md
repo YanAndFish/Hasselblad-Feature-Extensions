@@ -1,6 +1,6 @@
-# Pixel Synthesis: Offline Components
+# Pixel-Shift Area-Array Scan Synthesis: Offline Components
 
-Original four/six-frame synthesis research. The six-frame target is 23326 × 17498, approximately 400 MP. It supports batched parallel reads, compute partitions, background writes and bounded dual-consumer processing in ordinary memory.
+Original pixel-shift area-array scan synthesis research using four/six positional samples. Samples from different shift positions reconstruct a denser spatial pixel grid. The six-sample target is 23326 × 17498, approximately 400 MP. It supports batched parallel reads, compute partitions, background writes and bounded dual-consumer processing in ordinary memory.
 
 `capture_memory_view.h` defines a borrowed byte view owned by this project. Callers manage input lifetime; output data is released only after all consumers finish. It does not represent a manufacturer object or ABI.
 
@@ -16,7 +16,7 @@ Optional tools require NumPy, tifffile, rawpy, Pillow or libjpeg and are outside
 
 ## 中文
 
-项目自写四帧／六帧合成实现。六帧目标输出为 23326 × 17498，约四亿像素。支持分批并行读取、计算分区、后台写入和普通内存中的有界双路消费。
+项目自写的像素位移面阵扫描合成实现，使用四／六个位置的采样，在更密的空间像素阵列上重建图像。六合一目标输出为 23326 × 17498，约四亿像素。支持分批并行读取、计算分区、后台写入和普通内存中的有界双路消费。
 
 `capture_memory_view.h` 是项目自定义的借用字节视图，由调用方负责输入生命周期；输出全部消费完成后才释放数据，不对应厂商对象或 ABI。
 
