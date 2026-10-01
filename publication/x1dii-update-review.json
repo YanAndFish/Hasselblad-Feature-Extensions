@@ -288,7 +288,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "17a0075200217de4b06493b0d3a714e12bd4638eb4ebcc595e73b35c7c6b04f1"
+      "public_sha256": "226e6213f1ca037c48b375e2065c19813447ad3f85fbdbe7832076629caa8207"
     },
     {
       "path": "research/DEBUG_READ_BATCH.md",
@@ -3269,7 +3269,7 @@
       "origin": "本项目自写公开入口与实际离线检查",
       "license": "MIT用于原创内容",
       "review": "无设备、照片或厂商输入",
-      "public_sha256": "6ff0b3885266417a91fe3c77d9363047b1572e7366652ddd5bf4b248182050fc"
+      "public_sha256": "4e22978970a195feaf60bee271ef760ca677ee42f6f50fbb80ad8af48ac0d868"
     }
   ]
 }
