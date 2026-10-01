@@ -1,44 +1,81 @@
 # Hasselblad Feature Extensions
 
-独立、非官方的相机功能扩展源码项目。当前工作版本为**阶段性源码成果**：保留对焦、引闪、回放、动画、声音、通信与持久化相关实现，并提供经过验证的组件构建入口。**目前不能仅凭本仓库生成完整可安装的相机更新包。**
+An independent, unofficial source repository for camera-feature research. It presents selected, sanitized original algorithms, UI components, and offline tests. Main development remains in a separate research project. This repository does not currently provide a complete installable camera update.
 
-本阶段说明见 [STAGE_DELIVERY.md](STAGE_DELIVERY.md)。本阶段扩展此前仅含离线组件的 35 文件首版，恢复功能研究源码及组件构建入口。
+## Contents and status
 
-## 从这里开始
+| Area | Entry | Public scope |
+| --- | --- | --- |
+| X2D pixel synthesis | [Pixel research](x2d/CodeTests/pixel_shift_rgb/README.md) | Four/six-frame merging, batched parallel reads, background writes and a plain-memory pipeline; the six-frame target is approximately 400 MP |
+| X2D target policies | [X2D index](x2d/README.md) | Eye preference, grayscale template tracking, previews and EXIF tools; no camera backend |
+| X1D II face priority | [X1D II](X1D2/README.md) | Original excerpts and a BSD-licensed detector; the complete publisher still has missing dependencies |
+| X1D components | [X1D](x1d/README.md) | Flash/settings policies, replay research, audio routing, animation and offline resource tools |
+| X2D II | [X2D II](x2d2/README.md) | Topic index, without a completed on-camera adaptation |
+| Offline UI | [Flash UI](x2d/flash-ui/README.md) | Original icons and QML pages, without a device backend |
 
-只运行不需要相机输入的核心测试，需要 Python 3.11+ 和 C++11 编译器；以下以已验证的 Zig 0.13.0 为例：
+X1D II and X2D II are different models. X1D II face-priority excerpts are in `X1D2/`; historical candidates do not establish current camera installation or acceptance.
 
-```powershell
+## Offline verification
+
+Use Python 3.11+ and, for these tested examples, Zig 0.13.0. Specify an output directory. These entry points do not connect to a camera.
+
+```sh
 python -B scripts/CodeTests/test_build_contract.py
-python -B scripts/build_core.py --compiler zig --driver zig --build-dir ../hfe-build/core
+python -B scripts/build_core.py --compiler zig --driver zig --build-dir ./outputs/core
+python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/pixel-research
+python -B scripts/build_x1dii_detector.py --compiler zig --build-dir ./outputs/x1dii-detector
 ```
 
-默认构建 5 个真实核心测试程序；提供受支持的本地无线表后增加第 6 个适配层测试。上述入口不连接相机。目标库的交叉编译需要额外输入，见 [构建输入与缺口](BUILD_INPUTS.md)，不要把其他历史安装脚本当成默认构建步骤。
+The pixel entry checks plain-memory results against a fixed file algorithm, plus ten C component checks and eleven Python tests. The X1D II entry builds only the detector and checks a synthetic blank image; it does not build the incomplete publisher. See [build methods](BUILDABILITY.md) and [inputs](BUILD_INPUTS.md).
 
-## 内容索引
+## Publication notes
 
-| 内容 | 入口 | 当前边界 |
+- [Updates](PUBLIC_UPDATES.md) and [verification status](PUBLICATION_STATUS.md)
+- [Scope](PUBLICATION_SCOPE.md), [source review](SOURCE_REVIEW.md), and [contributing](CONTRIBUTING.md)
+- [Layout](DIRECTORY_LAYOUT.md) and [stage summary](STAGE_DELIVERY.md)
+
+Current documents use concise topic summaries, without historical firmware addresses, device records or internal work logs. Git history has not been rewritten; documentation cleanup is not a comprehensive rights review of older source.
+
+Original work uses [MIT](LICENSE). The detector in `X1D2/face-afs/vendor/libfacedetection/` retains its original BSD-3-Clause terms, notices and publicly released model parameters. Project licensing does not grant third-party rights. This project is not affiliated with or endorsed by the manufacturer.
+
+---
+
+## 中文
+
+独立、非官方的相机功能研究源码仓库，展示经过筛选和脱敏的原创算法、界面组件及离线测试。主要开发在独立研究项目进行；本仓库目前没有完整可安装的相机更新包。
+
+### 内容与状态
+
+| 方向 | 阅读入口 | 公开内容 |
 | --- | --- | --- |
-| X1D 对焦、回放、引闪与组合实现 | [X1D](x1d/README.md) | 包含历史候选；当前已复验组件见阶段说明 |
-| X2D 研究、菜单与功能实验 | [X2D](x2d/README.md) | 固件版本绑定的历史研究；尚未统一完成本次目标构建 |
-| X2D II | [X2D II](x2d2/README.md) | 研究与工具，不代表已完成机型适配 |
-| 动画与声音策略 | [动画](x1d/shutter-effects/README.md) | 不附带音频；声音策略已做替身测试 |
-| 离线引闪界面 | [界面](x2d/flash-ui/README.md) | 自绘图标及系统字体；机内集成另行验证 |
-| 诊断客户端 | [客户端测试](CodeTests/README.md) | 根目录 Node 工程；离线测试与 Windows 辅助程序编译通过 |
+| X2D 像素超频 | [像素合成](x2d/CodeTests/pixel_shift_rgb/README.md) | 四帧／六帧合成、分批并行读取、后台写入与普通内存流水线；六帧目标输出约四亿像素 |
+| X2D 选择与跟踪 | [X2D 索引](x2d/README.md) | 左右眼选择、灰度模板跟踪、预览和 EXIF 工具；不含相机后端 |
+| X1D II 人脸优先 | [X1D II](X1D2/README.md) | 自写候选片段及 BSD 开源检测库；完整发布器仍缺依赖 |
+| X1D 通用组件 | [X1D](x1d/README.md) | 引闪与设置策略、回放研究、声音路由、动画和离线资源工具 |
+| X2D II | [X2D II](x2d2/README.md) | 机型资料索引；不提供已完成的机内适配 |
+| 离线界面 | [引闪界面](x2d/flash-ui/README.md) | 原创图标和 QML 页面，无设备后端 |
 
-X1D II 尚待收到实现，没有用其他机型代码替代。目录中的历史“已安装”“已验证”仅对应其记录的原环境，不能视为本公开项目的重新验收。
+X1D II 与 X2D II 是不同机型；二代人脸优先源码位于 `X1D2/`。历史候选不代表当前公开源码已经完成相机安装或功能验收。
 
-## 构建与来源
+### 离线验证
 
-- [阶段交付与验证结果](STAGE_DELIVERY.md)
-- [构建方法](BUILDABILITY.md)与[完整输入清单](BUILD_INPUTS.md)
-- [公开范围](PUBLICATION_SCOPE.md)与[当前状态](PUBLICATION_STATUS.md)
-- [来源审核规则](SOURCE_REVIEW.md)、[目录规范](DIRECTORY_LAYOUT.md)及[贡献说明](CONTRIBUTING.md)
+需要 Python 3.11+；编译示例使用已验证的 Zig 0.13.0。输出由使用者显式指定，测试不连接相机。
 
-保留功能源码，对资源依赖采用原创替代、使用者本地生成或机内引用。本项目不附带厂商程序、固件、图标、字体、音频或目标运行库；不支持的输入会明确拒绝。缺少输入和历史路径依赖都不算构建通过。
+```sh
+python -B scripts/CodeTests/test_build_contract.py
+python -B scripts/build_core.py --compiler zig --driver zig --build-dir ./outputs/core
+python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/pixel-research
+python -B scripts/build_x1dii_detector.py --compiler zig --build-dir ./outputs/x1dii-detector
+```
 
-原创代码、文档和自绘图标采用 [MIT 许可证](LICENSE)。外部依赖适用各自许可，MIT 不授予第三方素材或商标权利。本项目不代表厂商，也不意味着厂商认可；技术检查不能保证法律风险为零。
+像素入口验证普通内存与固定文件算法的一致性，另运行十个 C 组件检查和十一项 Python 测试。X1D II 入口只编译开源检测库并测试自造空白图，不编译缺少依赖的完整发布器。详细输入见 [构建方法](BUILDABILITY.md)和[依赖清单](BUILD_INPUTS.md)。
 
-## 本次研究源码更新
+### 公开说明
 
-见 [PUBLIC_UPDATES.md](PUBLIC_UPDATES.md)。新增范围为自写离线算法与通用组件；厂商固件内部材料不纳入本轮更新，十六份旧分析工作文件已改为撤下说明。本次提交和推送已获授权；测试结果不能代替整个仓库的来源审查。
+- [本次更新](PUBLIC_UPDATES.md)与[当前验证状态](PUBLICATION_STATUS.md)
+- [公开范围](PUBLICATION_SCOPE.md)、[来源审核](SOURCE_REVIEW.md)与[贡献说明](CONTRIBUTING.md)
+- [目录索引](DIRECTORY_LAYOUT.md)与[阶段成果](STAGE_DELIVERY.md)
+
+当前文档使用简短主题说明，移除了历史固件地址、设备记录与内部施工过程。Git 历史仍保留；既有旧源码的全面权利审核也未因此自动完成。
+
+原创部分采用 [MIT](LICENSE)。`X1D2/face-afs/vendor/libfacedetection/` 按其原始 BSD-3-Clause 许可发布，保留上游声明及公开模型参数；项目许可不覆盖第三方权利。本项目不代表厂商或获得厂商认可。

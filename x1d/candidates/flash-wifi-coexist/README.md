@@ -1,31 +1,17 @@
-# X1D 引闪与热点保持候选
+# X1D Flash and Timing Research
 
-当前为**未完成、未安装的研究候选**。用户报告 Epson D580 被水淹，本轮打印机实测暂停；不能要求用户为了验证给它通电。
+Research into flash policies, parameter updates and exposure timing. Existing compensation responsibilities remain separate; offline state checks do not replace physical flash and synchronization measurements.
 
-目标固定 X1D-50c 官方 1.25.0。平时连接 D580 的 5 GHz Wi-Fi Direct 热点；由用户全按快门时，保存网络状态、切至既有引闪流程，以 CH 5 / ID 5 / D 组 / 1/8 功率执行本次功率同步与引闪，原厂曝光结束后释放无线并恢复网络。首轮仅观察连接是否中断，不实现打印，不读取照片。
+This path remains a short topic entry. Firmware addresses, internal API analysis, deployment details, device records and internal work notes have been removed from the current document; related historical source has not been reverified.
 
-## 当前结果
+See the [public index](../../../README.md) for runnable components, dependencies and verification limits. This is not a device-operation or installation guide.
 
-- `build.py` 已首次交叉编译成功，输出位于 `build/program`，包括候选运行时、复用的同步 observer/worker 与两个检查程序。检查了 ARM32 和旧动态加载器重定位布局。
-- `CodeTests/run.py` 首版曾通过 187 个断言；后续源码已有变动，需重新验证。不能把旧报告用于当前全部源码。
-- 本轮未连接打印机，未装载相机候选，未实测热点保持、重连耗时、快门续行或物理出光。
-- 尚未完成网络凭据输入、接入/退出脚本、实机安装包、失败恢复联调和 UI 验证。当前输出不是可交付安装包。
+---
 
-## 主要文件
+## 中文
 
-- `native/coexist_core.h`：带令牌与操作序号的离线资源交接核心。
-- `native/wpa_monitor.h`：持续监听连接/断线事件，只保留脱敏结果。
-- `native/network_handoff.h`：频道、扫描状态及自动发射功率控制的保存与恢复草稿；实际命令输出格式尚需固定版本实读验证。
-- `native/coexist_runtime.cpp`、`ui/`：固定参数的最小相机适配草稿，尚未经相机运行验证。
-- `source-lock.json`：只读复用既有引闪源码的哈希。构建不改变旧模块。
-- `device_session.py`：本候选独立的只读设备查询和证据目录，不含安装入口。
+研究引闪策略、参数更新与曝光时序。原有补偿责任保持独立；离线状态检查不能代替实际闪光与同步测量。
 
-## 继续时的检查
+此路径保留为简短主题入口。原有固件地址、内部接口分析、装载过程、设备记录与施工说明已从当前文档移除；相关历史源码未因此重新验收。
 
-1. 重跑并补充取消/超时/迟到回执测试，尤其实际曝光期间不得提前切回 Wi-Fi。
-2. 对状态监听、子进程失败、协议释放回执和 QML 回调做真实适配测试；确认晚到快照不能证明网络已恢复。
-3. 补齐一次性临时接入、设备状态快照及恢复脚本；不得写入系统长期配置或存储网络凭据到研究材料。
-4. 首先验证既有引闪测试固件能够正常接入 5 GHz 热点，再启用用户触发的切换实验。
-5. 分别报告关联中断、重新连接、地址变化、网络可达性和观测缺口；未收到断线事件只能表述为该观察窗口内未观察到断线。
-
-技术参考：[Infineon WL 工具官方说明](https://community.infineon.com/gfawx74859/attachments/gfawx74859/twwifibtcombo/869/1/wl_002-23156.pdf)描述自动发射功率控制与频道命令，但不能替代 X1D 当前 `wl` 的输出及行为验证。
+可运行组件、依赖和验证范围见 [公开索引](../../../README.md)。本页不是设备操作或安装指南。

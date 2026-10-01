@@ -1,35 +1,17 @@
-# 当前 JPEG 内存回放：实现边界与离线模块
+# X1D Replay and Preview Research
 
-目标是原厂 JPEG 正常写卡的同时保留最新拍摄的完整压缩 JPG；手动回放还缓存当前、上一张、下一张的完整压缩 JPG，同身份复用。退出回放释放三个浏览角色，只保留最新拍摄；下一次拍摄替换该常驻角色。本目录为独立研究和模块候选，**尚无生产钩子、IPC、GUI 接入或可装载包**，也没有相机访问。原 reader-r1 和 AF 增量不因此改变。
+Research into preview/full-image separation, publication after completion and UI restoration. Image dimensions and actual detail quality are separate verification targets.
 
-## 已核对的内存所有权
+This path remains a short topic entry. Firmware addresses, internal API analysis, deployment details, device records and internal work notes have been removed from the current document; related historical source has not been reverified.
 
-全部静态地址只对应本地 **X1D-50c 1.25.0** 原文件，哈希和反汇编见 [static.json](artifacts/ownership/static.json)。不据此宣称当前实机固件或格式设置。
+See the [public index](../../../README.md) for runnable components, dependencies and verification limits. This is not a device-operation or installation guide.
 
-- SharedBufferPool 输入在 `0x187c8` 使用 `QByteArray::fromRawData`，引用原共享输入内存，不能保留它作成片缓存。
-- VPU 位流普通路径在 `0x23534` 调用 `QByteArray::append`，环绕路径在 `0x23774`、`0x23788` 分两段追加。因此压缩输出是拥有数据的数组，不是 VPU 环形内存视图。`0x25674` 的 r5 指向栈上 `sp+0x98`；该输出先经 `0x25864` 填写头，再在 `0x2590c` 发送 encodeFinished，之后按引用计数清理。
-- 固定 Qt5 ARM 实际执行验证了共享复制、原引用释放后存活、修改时分离、最后引用释放和 fromRawData 继续别名五个用例，见 [execution.json](artifacts/ownership/execution.json)。分配器为宿主替身，未运行 VPU 或真实 D-Bus。
+---
 
-可行的保留位置是在原 ConvertCall 的 `StorageProxy::writeFile` 调用返回后，使用仍有效的拥有型 `QByteArray` 增加共享引用。必须先无条件调用原 writeFile 恰好一次，保留其原参数和返回对象；不能引入写前 JPEG 校验门槛、等待完成 watcher、额外编码或改动 freeBuffer。新增少量指令和引用操作仍有成本，不能承诺绝对零延迟。
+## 中文
 
-## 已实现的缓存生命周期
+研究预览与全尺寸主图的区分、完成后发布以及界面恢复。主图尺寸和实际细节质量属于不同验证目标。
 
-最新需求以 [role_cache.h](native/role_cache.h) 为主：Latest、Current、Previous、Next 四个角色共享最多四个照片身份槽，保存完整压缩 JPEG 的拥有型引用。旧读取者占用的已取消槽也计入四槽上限；未释放时拒绝新预取，不增加第五个身份。当前图和两侧邻图来自上层同一次目录模型快照，本模块不猜文件顺序。
+此路径保留为简短主题入口。原有固件地址、内部接口分析、装载过程、设备记录与施工说明已从当前文档移除；相关历史源码未因此重新验收。
 
-setWindow 指定用户当前选择与两侧预取身份；预取完成只填充对应数据，不切换 Current。翻到已预取图只改变角色，不重复保存 JPEG。每次窗口改变和退出都更新请求代次，迟到结果失效。新拍摄只替换 Latest，用户仍在手动浏览的 Current 不被擅自切换。退出清除三个浏览角色，无读取者立即释放，有旧解码引用则最后读取者结束后释放；Latest 保留。
-
-[byte_budget.h](native/byte_budget.h) 提供全局及分类字节预留、非等待拒绝和预留转移。当前是独立验证模块，尚未与真实 Qt/IPC/显示分配绑定；不能称为已限制整个相机内存。完整计费、估算和退化规则见 [MEMORY_BUDGET.md](MEMORY_BUDGET.md)。
-
-[latest_cache.h](native/latest_cache.h) 是先前单张拍摄角色的独立生命周期验证，不是最终手动回放策略。单个发布者提供单调 generation；新 generation 原子撤销旧图的可见资格。它的两个槽分别用于当前发布和可能正在读取的旧图。最终四角色方案使用上面的 role_cache；两个模块不能各自持有一套重复缓存。
-
-读取端通过 Lease 使用压缩数据。下一张到来后，旧 Lease 仍能安全完成当前读取，但 `current()` 立即变为 false，不能再将结果发布到当前画面。最后一个读取者退出后释放旧引用；没有读取者的旧引用由后台 collect 收走。生产端 begin 不等锁、不做大块释放；publish 只尝试取锁，不等待，槽位或额度不足即跳过缓存，按既有路径回放。尚未集成后台 collect，不能据此宣称现在已自动回收实机内存。
-
-宿主 C++ 验证包括连续替换、旧读取引用、额度/槽位限制、过期完成拒绝、四角色同图复用、双向翻页、退出保留最新图、全局预算预留转移以及 10,000 次并发替换，见 [validation.json](artifacts/cache-tests/validation.json)。Handle 使用宿主 shared_ptr 替身；Qt5 ARM 缓存实例、跨进程传输与实机线程调度未验证。GPU 纹理持有的是解码后像素，压缩 JPEG Lease 应在解码结束即释放；像素/纹理还须另行计费和取消，不能拿小预览替代用户要求的完整 JPG 缓存。
-
-## 接入前仍需解决
-
-原 `/liveview/Preview.qml` 的 ImageAdded 只提供路径。文件名相同不能独立证明拍摄身份。目前还没有绑定生产 generation 与 GUI 当前拍摄事件的可靠合同，必须防止同名重用、迟到完成、连续拍摄和进程重启时旧图成为“当前”。本模块只管理已给定的 token，不代替该证明。
-
-拟用进程内拥有型引用加本地受限 IPC 向 GUI 传送当前压缩 JPEG。传送和 GUI 接收会有复制与额外内存，复制即使属于同一照片也必须计费；不应声称零复制或已经最快。IPC 只能由后台线程处理，生产线程不能等待接收或写卡回执；不能把 JPEG 写入临时文件替代内存缓存。单张/总缓存额度是待实机确认的候选策略，不能从 MemTotal 直接认领可用空间。
-
-RAW-only 时未证明原厂会产生一份可截取的完整 JPEG。观察不到原 JPEG 就保持现有回退，不为此偷偷增加编码。真正接入前还需证明 token、拥有型检查、容量上限、缓存拒绝和 IPC 失败都不改变原写卡/归还流程，然后单独生成版本，由获授权的实机任务测量自动回放时延和连续拍摄行为。
+可运行组件、依赖和验证范围见 [公开索引](../../../README.md)。本页不是设备操作或安装指南。

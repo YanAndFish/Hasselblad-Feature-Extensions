@@ -1,22 +1,17 @@
-# 读取端回放验收（尚未执行）
+# X1D Replay and Preview Research
 
-执行者为 Main 和用户，真实组件为固定 X1D-50c 1.25.0 相机、原厂 configstore/jpeg-daemon/storage-daemon/victory-gui 与 reader-r1。设备操作按用户当时明确授权执行；本文不授权代理拍摄、改变设置或读取照片。输入采用用户指定测试卡和用户自己拍摄的测试图，记录中不包含序列号、照片内容或照片文件名。
+Research into preview/full-image separation, publication after completion and UI restoration. Image dimensions and actual detail quality are separate verification targets.
 
-## 启动顺序与就绪条件
+This path remains a short topic entry. Firmware addresses, internal API analysis, deployment details, device records and internal work notes have been removed from the current document; related historical source has not been reverified.
 
-先在未装候选的原厂状态由用户确认拍摄、写卡忙灯熄灭、手动与自动回放工作正常，再按交接的 ui → enable 分阶段装载。每阶段明确退出 0，并持续检查当前 GUI、GPU 和生产服务就绪；一次瞬时 active 不能替代后续就绪条件。阶段超时或返回不明只查日志和状态，不重复派发。不得在 AF 或其他独占任务占用时混装。
+See the [public index](../../../../../README.md) for runnable components, dependencies and verification limits. This is not a device-operation or installation guide.
 
-## 用例与断言
+---
 
-1. 原厂 RAW-only：由用户确认当前设置和已有图，手动回放应保持原厂可用。若无法回退，记录模型状态条件，不能通过额外读取 RAW 头修补判断。
-2. 原厂 RAW+JPEG：由用户确认对应 JPEG 存在，手动回放显示正确方向和颜色。新增读取路径仅为 JPEG；禁止为核实配对另读 3FR。拍摄格式和 JPEG 尺寸不是候选写入项。
-3. 自动回放：用户自行拍摄，观察写卡忙灯是否正常熄灭、新图是否出现、Error 重试是否在四次后停止。不得因 GUI 显示成功就认定原厂 RAW/JPEG 已正确落卡。
-4. 连续拍摄完整性：用户自行进行超过八张的受控测试，分别记录本轮新增图像张数、可见图数量、写卡忙灯变化及用户验卡得到的图像张数；不读取照片内容。测试前后卡内图像张数必须区分，不能把原有八张当成本轮成功。
-5. 放大和切图：分别记录首次手动回放、重复进入、自动回放、Full 放大时延。Full 失败时下层预览应保留；退出放大和换源后应释放相关资源。计时起止一致，真实 GPU 和进程内存数据单独记录。
-6. 失败恢复：装载失败由本轮恢复器处理，仅恢复本轮 GUI drop-in；未知内容不删除。记录恢复退出值、GUI 状态及原厂生产服务哈希，不把返回成功等同回放功能已恢复。
+## 中文
 
-## 中止、超时和证据
+研究预览与全尺寸主图的区分、完成后发布以及界面恢复。主图尺寸和实际细节质量属于不同验证目标。
 
-单次回放观察 20 秒；持续忙灯超过原厂基线正常范围、黑屏或无响应时停止追加拍摄，保留现场，由 Main 决定已授权的只读诊断。不要自动重启、重复装包或重拍来覆盖现场。安装步骤以脚本自身有界等待及独立阶段结果为准。
+此路径保留为简短主题入口。原有固件地址、内部接口分析、装载过程、设备记录与施工说明已从当前文档移除；相关历史源码未因此重新验收。
 
-证据写入新建的本轮记录目录，至少包括：包哈希、固件与固定依赖核对、阶段结果、观察者、测试前后卡内图像张数、各项计时口径、资源数据与恢复结果。照片内容、设备身份信息不写入报告。测试完成仅清理本轮创建且归属可确认的状态；原厂文件、用户照片和其他任务状态保持其原有归属。
+可运行组件、依赖和验证范围见 [公开索引](../../../../../README.md)。本页不是设备操作或安装指南。

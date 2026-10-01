@@ -1,29 +1,17 @@
-# 独立 AF 界面功能核对
+# X1D AF and Target-Selection Research
 
-目标：核对使用者选定的三阶段速度、判向模式、下一轮生效和当前回放记录一致。当前只测电脑端候选，不连接相机。自动核心检查位于 `CodeTests/test_native_ui.cjs`；这里记录浏览器可见流程，不能与核心检查合并成相机集成通过。
+Research into target regions, parameter selection and state transitions. Generic policies and camera backends require separate verification; parameter multipliers or simulated curves alone do not prove autofocus speed improvements.
 
-## 条件与启动
+This path remains a short topic entry. Firmware addresses, internal API analysis, deployment details, device records and internal work notes have been removed from the current document; related historical source has not been reverified.
 
-使用当前 `ui/`、其内嵌 WASM 和用户原图衍生数值。无需其他真实组件，浏览器中的镜头运动和原厂外层阶段行为均为模型。ARM 原厂局部函数由另一个离线检查独立覆盖。
+See the [public index](../../../../README.md) for runnable components, dependencies and verification limits. This is not a device-operation or installation guide.
 
-在 Hasselblad 项目根启动 `python -B -m http.server 8817 --bind 127.0.0.1 --directory .\x1d\af-experiment\ui`，访问 `http://127.0.0.1:8817/index.html`。只服务 UI 目录；不要启动相机客户端。若端口已有本任务的服务，可直接使用；不要关闭别人的进程。10 秒内应显示计算模块前缀 `ec74095dc373`，运行按钮可用且无错误提示。
+---
 
-## 本次原厂精扫交接核对
+## 中文
 
-2026-09-12 再次刷新到计算模块 `ec74095dc373`。精扫说明为保留原厂、默认沿用原厂速度；第三阶段标签为配置值且标注不模拟精扫。以判向跟随原厂、快速 12000、精扫跟随原厂运行，显示第 4 帧/172 模型 ms 判向、403 ms 减速、601 ms 交回原厂；状态明确为“已到精扫交接点 · 模型停止”，未显示精扫耗时或完整 AF 时间。35/12 离线检查和新 1536 组统计另由当前数值报告覆盖。
+研究目标区域、参数选择和状态迁移。通用策略与相机后端分别验证，参数倍数或模拟曲线不能单独证明实际对焦提速。
 
-## 此前版本已执行的可见流程（历史记录）
+此路径保留为简短主题入口。原有固件地址、内部接口分析、装载过程、设备记录与施工说明已从当前文档移除；相关历史源码未因此重新验收。
 
-1. 初始新判向未勾选，三段均跟随原厂，显示 pending v1；没有旧回放结果。
-2. 分别选择 1000/8000/1000，关闭新判向，无新增噪声，其他模型参数默认。运行后显示本轮 v4、实际模型值 1000/8000/1000、原厂判向；方向在第 4 帧/172 模型 ms 确认，436 ms 进入精扫，未提前减速。结果仅是这组浏览器模型。
-3. 勾选新判向，待用 v5 与已有 v4 同时可见；旧结果仍显示原厂判向。再运行后显示 v5/新判向，三个速度相同；本例第 4 帧/172 ms 判向，采用新判向 1 次。
-4. 320 像素外部视口下，文档内容宽 305（含滚动条），无水平溢出。三个速度框垂直排列，开关、标签与选项可见；测试后撤销临时视口覆盖。
-5. 打开验证说明，33/12 检查数、1536 组表格与两张图表实际加载，桌面宽度没有水平溢出。随后改为页内弹窗并验证可见；“关闭说明”后本轮 v1 与完整结果保持。验证页和主页面本地链接存在。
-
-记录和 CSV 的内容一致性由 12 项核心检查中的冻结/导出用例验证；此次没有通过浏览器下载按钮落盘，不把代码核对写成浏览器下载验证。
-
-## 边界与清理
-
-内置浏览器拒绝 `file://` 导航；没有绕过安全策略，直接双击 HTML 的方式未验证。本次使用已经运行的本机 HTTP 预览完成检查。
-
-所有检查硬件请求 0，没有光学或机械精度结论。交付时保留本任务创建的本机预览；用户不再需要预览时，可在该服务终端 Ctrl+C，只终止这个服务。浏览器功能核对与文件来源清单保存在 `build/native-af-r1/`，不写回原图片或其他模块。
+可运行组件、依赖和验证范围见 [公开索引](../../../../README.md)。本页不是设备操作或安装指南。

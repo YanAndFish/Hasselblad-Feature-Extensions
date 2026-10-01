@@ -1,31 +1,17 @@
-# X1D 组合临时装载
+# X1D Runtime and Recovery Research
 
-该模块是正式引闪、机内 AF 设置、回放候选及部分常驻 UI 的唯一 Linux 协调器。基线为 X1D 1.25.0；所有运行文件均位于本次 `/tmp` 与 `/run/systemd` 临时目录，重启失效。当前交付状态必须看本轮 `build/sessions/` 安装记录，离线通过不代表已经装入相机。
+Research into component state, resource release and failure recovery. Historical candidates were not reaccepted as complete builds or on-device features in this update.
 
-三个速度默认跟随原厂，手动档分别为五、四、五档；远端优先保留，抗噪判向默认关闭。快扫提前减速和精扫提前停止的配置可独立保存，但两个实际动作尚未接通。常驻 UI 只覆盖已明确列出的菜单与通用设置页面。回放 GPU 能力检查不等于全尺寸照片纹理分配、上传和最终显示验收。
+This path remains a short topic entry. Firmware addresses, internal API analysis, deployment details, device records and internal work notes have been removed from the current document; related historical source has not been reverified.
 
-## 固定输入
+See the [public index](../../README.md) for runnable components, dependencies and verification limits. This is not a device-operation or installation guide.
 
-- `build_package.py` 核对最新 AF 交付、真实资源回读、组合 shell 测试、传输测试以及 native ABI 报告，生成不可变归档和目标摘要清单。
-- 引闪 Linux 文件来自已成功运行的固定归档。只复用其无线准备与运行程序；不调用旧安装器、旧保持窗口或旧全局恢复流程。
-- 最终主资源的冻结身份由 root 提供，回放组合库严格绑定该身份。唯一 RCC 注册器仍是 root 的组合适配器。
-- AF 首次安装从当前原厂入口和零 bootstrap 开始，使用原厂分配器申请新独立空间；不先安装旧观察版。
+---
 
-## 设备阶段
+## 中文
 
-1. `transfer.py` 只传文件并验证归档，尚不建立保持窗口。每个请求保持固定封包、匹配回执和句柄关闭检查。
-2. `run.sh preflight` 与 `ui` 核对本次目录、原厂程序和服务，建立一次性二十分钟窗口，先验证桥接 GUI 的资源、接口与 GPU。
-3. PC 只读验证当前 FARM 原厂代码和专属空白区，随后派发 `observer`，让引闪和 AF 的 Linux 端点在同一原厂消息进程中运行。
-4. PC 经缓存执行回执装入引闪，再调用已冻结的 AF `first-install` 契约。每笔 RAM 写入均由各自白名单和持久化记录保护；不触发拍摄、AF 或试闪。
-5. 回放依次 `prepare → config → jpeg`；只有这三步完成才将 provider 加入同一 GUI 资源链。保持窗口不会因 GUI 重启续期。
-6. 以新的只读句柄核验 AF/引闪代码、曝光序号、空闲状态和临时回调复原，再开放用户控件并释放保持。原 AF 安装事件链关闭后不再追加请求。
+研究组件状态、资源归还和失败恢复。历史候选未在本次更新中重新完成整包构建或设备验收。
 
-## 失败与恢复
+此路径保留为简短主题入口。原有固件地址、内部接口分析、装载过程、设备记录与施工说明已从当前文档移除；相关历史源码未因此重新验收。
 
-每个 Linux 阶段有独占的 `sent` 和原子发布的 `exit`。出现未知退出结果时先观察，不重发。文件传输的最后一块若回执缺失，可以单独读取完整暂存长度和前缀摘要；只有与已确认前缀或最后一块的完整结果精确一致，`resume_staging.py` 才允许从已核实边界继续。这个入口只适用于安装尚未开始的文件上传，不用于恢复服务或 RAM 事务。
-
-provider 导致 GUI 失败时，先显式回到已验证的桥接 GUI，再恢复回放自己的后端。FARM/AF 的完整回滚只接受完整、当前且无歧义的专属记录；部分写入失败必须按具体阶段审查。停止 worker 时保留 GUI 和消息消费者，PC 确认 RAM 已恢复之后才允许 `restore-linux` 恢复自有服务与无线状态。未知或被其他程序修改的 drop-in 保留并停止。
-
-## 验证范围
-
-`CodeTests/test_resources.py` 使用真实资源读取及桌面 QML 生命周期验证。`CodeTests/test_install.py` 执行实际 shell 的隔离工作副本，服务、硬件程序、权限和 socket 类型采用替身；包含阶段顺序、窗口失效、provider 恢复、不确定结果及外部文件改动。`transfer.py` 默认执行封包长度、摘要失败和不重发检查。目标 Qt、真实 IPC、镜头动作和回放图像效果仍需相应现场证据，不能由这些离线测试替代。
+可运行组件、依赖和验证范围见 [公开索引](../../README.md)。本页不是设备操作或安装指南。

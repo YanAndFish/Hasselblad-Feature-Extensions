@@ -1,10 +1,13 @@
-# X2D 离线分析脚本位置
+# X2D Tool Notes
 
-USB 页面脚本：[inspect_usb_ui_4_2_0.py](inspect_usb_ui_4_2_0.py)。运行 `py -3.11 -B x2d/tools/inspect_usb_ui_4_2_0.py`，复核 USB 测试消息到终端输入、原厂确认页/图片页、ABI 与显示基础；只读本地固件、向 stdout 输出 JSON，不构造设备请求。结果见 [usb-ui-checks.json](../outputs/4.2.0/usb-ui-checks.json)。
+Use the [test index](../CodeTests/README.md) for reproducible pixel/image components, with explicit toolchain and output paths. Older analysis scripts are outside the recommended scope and their firmware/device paths were not reverified. A script's presence does not make it an installable feature.
 
-页面研究脚本：[inspect_gui_entry_4_2_0.py](inspect_gui_entry_4_2_0.py)。运行 `py -3.11 -B x2d/tools/inspect_gui_entry_4_2_0.py`，只读固定固件并向 stdout 输出 JSON，复核 QRC 页面、Wayland 启动和窗口分类/焦点指令；不启动 GUI 或连接设备。验证结果由脚本输出到标准输出。
+See [publication scope](../../PUBLICATION_SCOPE.md).
 
+---
 
-后续 X2D 专属分析脚本放在本目录，并明确绑定固件版本及输入哈希。本次未迁移共享 Python 工具：根目录 `tools/` 的脚本被既有客户端工作流、测试和其他分析脚本引用，部分固定从根目录 `.research-cache/` 读取并向 `research/` 输出。
+## 中文
 
-共享工具与依赖详见 [共享项索引](../SHARED_ITEMS.md)。本轮已保存的纯内存回读模拟位于 [CodeTests](../CodeTests/README.md)，不具备设备传输能力。不要为整理目录启动旧脚本中的下载、构建或硬件入口。
+当前可复现的像素和图像组件从 [测试索引](../CodeTests/README.md)运行，明确指定工具链和输出位置。旧分析脚本不是本轮推荐能力，没有重新验证其固件或设备路径；脚本存在不代表可直接安装。
+
+来源与限制见 [公开范围](../../PUBLICATION_SCOPE.md)。

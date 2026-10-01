@@ -1,13 +1,31 @@
-# X2D 4.2.0 离线回读模型
+# X2D Offline Code Checks
 
-`region_reply_model.py` 保存此前已在纯内存中执行的地区回复模拟。输入全部为人工响应，不读取设备、固件、照片或外部数据；无网络、USB、串口、ADB、进程调用和文件输出功能。脚本只向 stdout 输出计数与验证范围。
+The recommended entry uses synthetic inputs, without photographs, firmware or a camera. Run from the repository root:
 
-在项目根目录运行：
-
-```powershell
-py -3.11 -B x2d/CodeTests/region_reply_model.py
+```sh
+python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/pixel-research
 ```
 
-对应固定官方 X2D 100C 4.2.0 的静态结构，证据见 [地区报告](../research/4.2.0/REGION_AND_READBACK.md)。已保存的本轮结果为 [offline-region-reply.json](../outputs/4.2.0/offline-region-reply.json)。
+- [Pixel synthesis](pixel_shift_rgb/README.md): file/plain-memory comparisons, batching and bounded queues.
+- [Eye preference](face_edge_fix/README.md): left/right preference policy.
+- [Tracking](subject_tracking/README.md): grayscale templates and stale observations.
+- [Display controls](display_controls/README.md): design boundaries.
 
-覆盖 14 个内层场景、8 个外层场景、160 组 CRC 交叉、已知向量、1888 个正文单比特损坏和 96 个头字段不匹配。外层采用该固定版本 260 字节完整帧模型；没有验证真实传输的分包、会话、超时、跨启动持久性或同头旧回复的新鲜度。这是离线研究验证，不是已实现的维护客户端。
+This verification covers ten C components, eleven Python checks and memory-merge comparisons. Historical region models and AF probes were not reaccepted and are not default steps. See [updates](../../PUBLIC_UPDATES.md).
+
+---
+
+## 中文
+
+推荐入口使用自造输入，不需要照片、固件或相机。从仓库根目录执行：
+
+```sh
+python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/pixel-research
+```
+
+- [像素合成](pixel_shift_rgb/README.md)：文件与普通内存算法对照、分批处理和有界队列。
+- [人眼选择](face_edge_fix/README.md)：通用左右眼偏好。
+- [主体跟踪](subject_tracking/README.md)：灰度模板与过期观测处理。
+- [显示控制](display_controls/README.md)：设计边界说明。
+
+本轮包含十个 C 组件、十一项 Python 检查及内存合成对照。历史地区模型、对焦探针等没有在本次更新中重新验收，不作为默认步骤。摘要见 [公开更新](../../PUBLIC_UPDATES.md)。

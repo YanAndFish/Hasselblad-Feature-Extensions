@@ -1,17 +1,29 @@
-# 像素超频离线组件
+# Pixel Synthesis: Offline Components
 
-提供项目自写的四帧/六帧计算、分批读取、后台写入和内存双路消费研究实现。六帧目标输出为 23326 × 17498，约四亿像素。
+Original four/six-frame synthesis research. The six-frame target is 23326 × 17498, approximately 400 MP. It supports batched parallel reads, compute partitions, background writes and bounded dual-consumer processing in ordinary memory.
 
-`capture_memory_view.h` 是项目自定义的借用字节视图，不对应厂商共享对象或 ABI。调用方负责输入生命周期；两个输出消费者完成后才回收缓冲。队列允许在整张完成前交付一批，显影和文件写入在测试中由普通消费者替身承担。
-
-从仓库根目录执行：
+`capture_memory_view.h` defines a borrowed byte view owned by this project. Callers manage input lifetime; output data is released only after all consumers finish. It does not represent a manufacturer object or ABI.
 
 ```sh
-python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/public-research
+python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/pixel-research
 ```
 
-默认仅生成模拟输入，编译并运行算法对照和通用组件检查，不连接设备、不提取固件、不生成安装包。验证过的工具链为 Zig 0.13.0；ARM 构建不在相机运行。输出目录必须明确指定。文件读取对照中的 DNG 是测试中间容器，不是当前相机成片格式承诺。
+Run from the root with Python 3.11+ and Zig 0.13.0. Inputs are synthetic, without camera access. Comparisons against the [fixed file algorithm](Fixtures/frozen-row-merge/README.md), cross-batch and failure-release checks passed, alongside ten C components and eleven Python checks.
 
-可选桌面工具依赖 NumPy、tifffile、rawpy、Pillow 或 libjpeg，使用者按各自许可安装。没有附带照片、色彩标定、ICC、厂商资源或模型；这部分未纳入本轮默认测试。
+Optional tools require NumPy, tifffile, rawpy, Pillow or libjpeg and are outside default testing. DNG is only a test container. Real capture, manufacturer rendering, 3FR, album and HEIF backends are not provided. See [updates](../../../PUBLIC_UPDATES.md).
 
-来源、脱敏与未完成边界见仓库根目录 `PUBLIC_UPDATES.md` 及逐文件审核记录。真正的拍摄缓存交接、3FR 写入、显影和相册功能没有包含在公开入口中。
+---
+
+## 中文
+
+项目自写四帧／六帧合成实现。六帧目标输出为 23326 × 17498，约四亿像素。支持分批并行读取、计算分区、后台写入和普通内存中的有界双路消费。
+
+`capture_memory_view.h` 是项目自定义的借用字节视图，由调用方负责输入生命周期；输出全部消费完成后才释放数据，不对应厂商对象或 ABI。
+
+```sh
+python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/pixel-research
+```
+
+从根目录执行，使用 Python 3.11+ 和 Zig 0.13.0。输入自造，不访问相机。普通内存与[固定文件算法](Fixtures/frozen-row-merge/README.md)的像素对照、跨批次和失败释放通过，另有十个 C 组件与十一项 Python 检查。
+
+可选工具需要 NumPy、tifffile、rawpy、Pillow 或 libjpeg，未纳入默认测试；DNG 仅为测试容器。公开内容不提供真实拍摄、原厂显影、3FR、相册或 HEIF 后端。详见 [公开更新](../../../PUBLIC_UPDATES.md)。

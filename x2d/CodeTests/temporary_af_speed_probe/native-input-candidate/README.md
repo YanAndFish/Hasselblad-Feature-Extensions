@@ -1,49 +1,17 @@
-# 原生常驻菜单控制候选
+# X2D AF and Target-Selection Research
 
-最新状态：用户重新接入 USB 并授权持久化后，原生 inspect、常驻启动与持久化文件安装已通过。完整开机及用户按键性能仍待验收，详见 `DEVICE-RESULT.md`。不得把构建或通信检查成功解释为菜单已经达到 20 毫秒。
+Research into target regions, parameter selection and state transitions. Generic policies and camera backends require separate verification; parameter multipliers or simulated curves alone do not prove autofocus speed improvements.
 
-## 与现有相机版本的区别
+This path remains a short topic entry. Firmware addresses, internal API analysis, deployment details, device records and internal work notes have been removed from the current document; related historical source has not been reverified.
 
-相机最后核验的是两步切换的脚本版本：取景时前键进入原厂参数页；在参数页前键显示自定义菜单；菜单里再按前键回参数页。回到取景由原厂半按快门处理。独立页面常驻，开机创建时隐藏，没有定时退出。
+See the [public index](../../../../README.md) for runnable components, dependencies and verification limits. This is not a device-operation or installation guide.
 
-本候选保留上述行为。原生控制程序常驻读取输入设备、复用相机服务通信连接，按键切换不再启动 `dbus-send`、`dd`、`od` 等外部命令。首次就绪前先连接并只读查询相机服务，减少第一次按键时才建连的开销。原厂 GUI 内存只读；控制程序的内存写入仅指向已确认身份的自有预览进程的一字节显隐请求。
+---
 
-开机初始化仍有一次 shell 脚本，用于版本校验、运行地址解析、创建独立页面及设置前键映射；尚不是完全原生的开机加载器。已取消固定等待六秒，改为检查隐藏窗口是否存在。窗口已创建不等于首次渲染完成。
+## 中文
 
-独立页面显隐回调间隔由 20 毫秒改成 5 毫秒，是待测候选。这个间隔不是按键到屏幕实际显示的延迟，也没有测量它对耗电的影响。
+研究目标区域、参数选择和状态迁移。通用策略与相机后端分别验证，参数倍数或模拟曲线不能单独证明实际对焦提速。
 
-启动配置候选将触发条件改到原厂 GUI 服务进入 running 后。它不修改或重启原厂 GUI 服务；实际触发时刻、依赖就绪、资源竞争和首帧取景耗时仍须完整开机验证，不能说已经实现与原厂页面同时加载。
+此路径保留为简短主题入口。原有固件地址、内部接口分析、装载过程、设备记录与施工说明已从当前文档移除；相关历史源码未因此重新验收。
 
-## 已通过的离线核验
-
-- 原厂 X2D 100C 4.2.0 的库用于链接；27 个导入符号有对应导出，ELF 为 AArch64，未生成可写且可执行的加载段。
-- 实际编译出的状态决策函数：56 个状态组合。
-- 实际编译出的构造函数：7 个拒绝路径，拒绝时没有相机通信或内存写入。
-- 显隐回调的 ARM64 模拟：9 个场景。
-- 生成的加载脚本通过 shell 语法检查。
-
-离线检查本身没有覆盖实机 D-Bus ABI、权限、完整原生事件循环、窗口渲染及开机时序。接机后的补充证据单列于 `DEVICE-RESULT.md`。
-
-## 文件及构建
-
-源码在上一级的 `native_menu_input.c`、`build_native_menu_input.py`、`check_native_menu_input.py`、`build_native_input_package.py`。`package.json` 记录候选文件哈希和目标路径，不能单独视作安装工具。
-
-离线顺序：
-
-```powershell
-py -3.11 -B x2d/CodeTests/temporary_af_speed_probe/build_native_menu_input.py
-py -3.11 -B x2d/CodeTests/temporary_af_speed_probe/check_native_menu_input.py
-py -3.11 -B x2d/CodeTests/temporary_af_speed_probe/build_native_input_package.py
-```
-
-构建不覆盖现有 `input-candidate`，也不替换现有默认回调文件。提取到本目录的 `libc.so` 和 `libdbus.so` 仅用于离线链接；它们不在安装文件清单内，不替换相机原厂库。
-
-## 后续接机步骤与实际边界
-
-1. 完成单独的安装／撤回事务：核对当前已安装版本，备份自有加载器及启动配置；不覆盖历史备份，不改原厂可执行文件。
-2. 重新只读解析本次运行身份、映射和地址，先执行原生 inspect。inspect 只读取进程和相机属性，不打开按键设备、不写相机进程，但会在自有临时目录写日志并连接已有 D-Bus 服务。
-3. inspect 通过后，先验证原生控制与 5 毫秒回调；保持窗口隐藏，由用户按键。多次开关、原厂半按、通信暂时失败、退出清理均需验证。
-4. 再验证较早开机触发。首次正常取景不能因候选失败而无法启动；失败需恢复原厂前键绑定，独立子进程须清理。
-5. 计时区分输入排队、处理请求、显隐回读、屏幕实际变化。软件日志不能替代按键到屏幕的外部测量。
-
-目标是接近原厂响应；20 毫秒或更低尚未实测。相机断开期间没有安装；重新连接并获本轮明确授权后才写入持久化配置。生成清单中的 installed=false 是构建阶段状态，实际部署结果以 `DEVICE-RESULT.md` 为准。
+可运行组件、依赖和验证范围见 [公开索引](../../../../README.md)。本页不是设备操作或安装指南。

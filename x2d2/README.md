@@ -1,8 +1,13 @@
-# X2D II 研究与工具
+# X2D II Topic Index
 
-本目录目前保留研究文档和离线分析工具，不表示已提供 X2D II 可安装功能更新，也不表示 X1D 或 X2D 的实现能直接用于本机型。
+This directory retains X2D II topic summaries. It provides no installable feature update, and tests for other models do not establish adaptation for this model. Historical documents no longer contain firmware addresses, internal API analysis or device records. Older tools are not recommended build entry points.
 
-- `research/`：按材料中的固件版本理解结论，区分静态分析和设备验证。
-- `tools/`：历史分析入口；运行前核对显式输入与输出位置，不附带厂商输入。
+For second-generation X1D face-priority work, see [X1D II](../X1D2/README.md). Generic pixel research is under [X2D](../x2d/CodeTests/pixel_shift_rgb/README.md). See [publication scope](../PUBLICATION_SCOPE.md).
 
-全项目阶段状态与当前已验证入口见 [阶段说明](../STAGE_DELIVERY.md) 和 [构建输入](../BUILD_INPUTS.md)。
+---
+
+## 中文
+
+本目录保留 X2D II 主题索引，没有可安装功能更新，也没有因其他机型的测试通过而完成本机型适配。历史文档不再提供固件地址、内部接口分析或设备操作记录；旧工具不是推荐构建入口。
+
+X1D 二代人脸优先见 [X1D II](../X1D2/README.md)，通用像素研究见 [X2D](../x2d/CodeTests/pixel_shift_rgb/README.md)。整体范围见 [公开说明](../PUBLICATION_SCOPE.md)。

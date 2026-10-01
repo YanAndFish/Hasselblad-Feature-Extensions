@@ -16,11 +16,12 @@
       "rights_basis": "本项目原创修改适用MIT；现有仓库声明保留",
       "notices": "保留原有许可与必要的外部参考链接",
       "changes": [
-        "新增说明或通用适配；不把候选测试标成设备或法律验收"
+        "新增说明或通用适配；不把候选测试标成设备或法律验收",
+        "本次统一更新公开文档，保留组件验证边界"
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "ba6721866fd7f27023896415b4d67062aec31d25a2c6982279e40c7c1b2515b3"
+      "public_sha256": "5edebc98ad3ed824ebd697865669d32bab902568f825d6f1ece4607d96ec7160"
     },
     {
       "path": "PUBLIC_UPDATES.md",
@@ -31,11 +32,12 @@
       "rights_basis": "本项目原创修改适用MIT；现有仓库声明保留",
       "notices": "保留原有许可与必要的外部参考链接",
       "changes": [
-        "新增说明或通用适配；不把候选测试标成设备或法律验收"
+        "新增说明或通用适配；不把候选测试标成设备或法律验收",
+        "本次统一更新公开文档，保留组件验证边界"
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "c103507339c71f7530e5932160ffd8798841ed443d65b64f25c0953a042c3a4c"
+      "public_sha256": "c9f01beaa3efa0108c1a257d0747690129b91b7606383805d9a59260dee725bc"
     },
     {
       "path": "README.md",
@@ -46,11 +48,14 @@
       "rights_basis": "本项目原创修改适用MIT；现有仓库声明保留",
       "notices": "保留原有许可与必要的外部参考链接",
       "changes": [
-        "新增说明或通用适配；不把候选测试标成设备或法律验收"
+        "新增说明或通用适配；不把候选测试标成设备或法律验收",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界",
+        "英文在前、中文在后，保持同一范围"
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "0f47cbb8530d9ee0d10bfe99b73af02712a81eb1e6be9cf2d83744ea1ba00c46"
+      "public_sha256": "17a0075200217de4b06493b0d3a714e12bd4638eb4ebcc595e73b35c7c6b04f1"
     },
     {
       "path": "publication/x2d-update-validation.json",
@@ -175,11 +180,14 @@
       "rights_basis": "本项目原创修改适用MIT；现有仓库声明保留",
       "notices": "保留原有许可与必要的外部参考链接",
       "changes": [
-        "新增说明或通用适配；不把候选测试标成设备或法律验收"
+        "新增说明或通用适配；不把候选测试标成设备或法律验收",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界",
+        "英文在前、中文在后，保持同一范围"
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "5403e6a3f23e2e649af474f4f7978a6a6610c9d62da1cb19c85d1824ffd47ab4"
+      "public_sha256": "6362fcf99b6b8a7119bf6e50d18f38968a9850a19a0c24b13c3642f03bafae51"
     },
     {
       "path": "x2d/CodeTests/face_edge_fix/EyePreferencePolicy.js",
@@ -207,11 +215,14 @@
       "rights_basis": "本项目原创修改适用MIT；现有仓库声明保留",
       "notices": "保留原有许可与必要的外部参考链接",
       "changes": [
-        "新增说明或通用适配；不把候选测试标成设备或法律验收"
+        "新增说明或通用适配；不把候选测试标成设备或法律验收",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界",
+        "英文在前、中文在后，保持同一范围"
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "5277a3eb6994016a2af724b8dcb45a53c8844ff2a45f3aa39e141bd26924726d"
+      "public_sha256": "517ac539585cba05bd96d708a4c8a12dee03dfa7a3d72841f6871ba8f78f3a86"
     },
     {
       "path": "x2d/CodeTests/pixel_shift_rgb/.gitattributes",
@@ -240,12 +251,15 @@
       "notices": "保留项目版权和许可；冻结原创样本的原字节保留，许可在项目与目录说明中声明",
       "changes": [
         "公开内容审查；源码逻辑保持工作快照",
-        "排除固件接口和部署链；脱敏并核对依赖"
+        "排除固件接口和部署链；脱敏并核对依赖",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界",
+        "英文在前、中文在后，保持同一范围"
       ],
       "review": "可纳入候选；不是全仓法律审查结论",
       "dependencies": "标准C/Python工具链；部分可选桌面工具依赖外部开源图像库，未附带第三方素材",
       "source_sha256": "eaa173942855eca7668efd1280529e2aad0317271fd27b6e0788e65eb88f47a8",
-      "public_sha256": "eaa173942855eca7668efd1280529e2aad0317271fd27b6e0788e65eb88f47a8"
+      "public_sha256": "99e713d391f905ab813c94e6f5e2b9a8bb6901a3976f218a7611f14938369b32"
     },
     {
       "path": "x2d/CodeTests/pixel_shift_rgb/Fixtures/frozen-row-merge/baseline-onboard-four.c",
@@ -307,11 +321,14 @@
       "rights_basis": "本项目原创修改适用MIT；现有仓库声明保留",
       "notices": "保留原有许可与必要的外部参考链接",
       "changes": [
-        "新增说明或通用适配；不把候选测试标成设备或法律验收"
+        "新增说明或通用适配；不把候选测试标成设备或法律验收",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界",
+        "英文在前、中文在后，保持同一范围"
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "6b90ca296da81e4b888648cbef689bdd170b90debb5247d53542407ee9815729"
+      "public_sha256": "9bfbd2906e000775389edbc1ea97c1a23cef22c88e7d5923a842b37b5d765a09"
     },
     {
       "path": "x2d/CodeTests/pixel_shift_rgb/add_native_jpeg_preview.py",
@@ -1219,12 +1236,16 @@
       "license": "MIT仅适用于本项目自写替代说明，不授权旧厂商材料",
       "upstream": "旧公開版本的资料；本轮不承接其固件结论",
       "changes": [
-        "明确撤下组件或证据内容；保留路径避免静默伪装成正常功能"
+        "明确撤下组件或证据内容；保留路径避免静默伪装成正常功能",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界",
+        "英文在前、中文在后，保持同一范围"
       ],
       "review": "旧内容不纳入本轮公开候选；替代说明可纳入候选",
       "dependencies": "旧分析链不再提供；相关功能待独立重新实现",
       "prior_public_sha256": "73e28970579fed95893605ed3b674890d94a7fa6bbf51d6d1c136cd8b6f179a9",
-      "public_sha256": "3e48660e467e731f42fe865887b4edabfbadb8eaec5a8a1b0604ba1d3f51882b"
+      "public_sha256": "b844327db163d2f4a5a9405ec6283d5f35a0a02694226a70ba0b44529f5e70a5"
     },
     {
       "path": "x2d/CodeTests/shutter-animation-preview/baseline-400ms.sources.json",
@@ -1249,11 +1270,14 @@
       "rights_basis": "本项目原创修改适用MIT；现有仓库声明保留",
       "notices": "保留原有许可与必要的外部参考链接",
       "changes": [
-        "新增说明或通用适配；不把候选测试标成设备或法律验收"
+        "新增说明或通用适配；不把候选测试标成设备或法律验收",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界",
+        "英文在前、中文在后，保持同一范围"
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "7c88f520dcaca4c250748258cb76234757d49521d88cedb436010478e1835481"
+      "public_sha256": "c07f602606723b1e0ce4e5c43b0dedc22fe164e8fb7857fb960a49708b520198"
     },
     {
       "path": "x2d/CodeTests/subject_tracking/test_subject_tracker.c",
@@ -1279,12 +1303,14 @@
       "license": "MIT仅适用于本项目自写替代说明，不授权旧厂商材料",
       "upstream": "旧公開版本的资料；本轮不承接其固件结论",
       "changes": [
-        "明确撤下组件或证据内容；保留路径避免静默伪装成正常功能"
+        "明确撤下组件或证据内容；保留路径避免静默伪装成正常功能",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界"
       ],
       "review": "旧内容不纳入本轮公开候选；替代说明可纳入候选",
       "dependencies": "旧分析链不再提供；相关功能待独立重新实现",
       "prior_public_sha256": "d91891f145ba86d7576e5a71924755570f9ae533d6e8a57a26f23a74f8becc44",
-      "public_sha256": "3e48660e467e731f42fe865887b4edabfbadb8eaec5a8a1b0604ba1d3f51882b"
+      "public_sha256": "9978ee6ae40597dd5c1184dc72da63eed33cf0ff5b7ebbcd0a976c6779a025b1"
     },
     {
       "path": "x2d/research/4.2.0/REGION_AND_READBACK.md",
@@ -1293,12 +1319,14 @@
       "license": "MIT仅适用于本项目自写替代说明，不授权旧厂商材料",
       "upstream": "旧公開版本的资料；本轮不承接其固件结论",
       "changes": [
-        "明确撤下组件或证据内容；保留路径避免静默伪装成正常功能"
+        "明确撤下组件或证据内容；保留路径避免静默伪装成正常功能",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界"
       ],
       "review": "旧内容不纳入本轮公开候选；替代说明可纳入候选",
       "dependencies": "旧分析链不再提供；相关功能待独立重新实现",
       "prior_public_sha256": "a71de41ffdf5afc896094e009ecaa3b01185ba60fd5464a98a4f42365b32b950",
-      "public_sha256": "3e48660e467e731f42fe865887b4edabfbadb8eaec5a8a1b0604ba1d3f51882b"
+      "public_sha256": "8f4cbd8881e5e84a1833ad6603a4c5d1d34fb0e338f5fe0ea2e264c0a59b12b1"
     },
     {
       "path": "x2d/research/4.2.0/sources.json",
@@ -1321,12 +1349,14 @@
       "license": "MIT仅适用于本项目自写替代说明，不授权旧厂商材料",
       "upstream": "旧公開版本的资料；本轮不承接其固件结论",
       "changes": [
-        "明确撤下组件或证据内容；保留路径避免静默伪装成正常功能"
+        "明确撤下组件或证据内容；保留路径避免静默伪装成正常功能",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界"
       ],
       "review": "旧内容不纳入本轮公开候选；替代说明可纳入候选",
       "dependencies": "旧分析链不再提供；相关功能待独立重新实现",
       "prior_public_sha256": "1c4f8fc0b910a9482720a6ff6480fcba81beac6bbf0740216279d002c7cfbf87",
-      "public_sha256": "3e48660e467e731f42fe865887b4edabfbadb8eaec5a8a1b0604ba1d3f51882b"
+      "public_sha256": "8f4cbd8881e5e84a1833ad6603a4c5d1d34fb0e338f5fe0ea2e264c0a59b12b1"
     },
     {
       "path": "x2d/research/history/RESEARCH_HANDOFF.md",
@@ -1335,12 +1365,14 @@
       "license": "MIT仅适用于本项目自写替代说明，不授权旧厂商材料",
       "upstream": "旧公開版本的资料；本轮不承接其固件结论",
       "changes": [
-        "明确撤下组件或证据内容；保留路径避免静默伪装成正常功能"
+        "明确撤下组件或证据内容；保留路径避免静默伪装成正常功能",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界"
       ],
       "review": "旧内容不纳入本轮公开候选；替代说明可纳入候选",
       "dependencies": "旧分析链不再提供；相关功能待独立重新实现",
       "prior_public_sha256": "724117f252a33f0bf9c171a26251f2f868033499b22010d8dbf06d86a7dbfba7",
-      "public_sha256": "3e48660e467e731f42fe865887b4edabfbadb8eaec5a8a1b0604ba1d3f51882b"
+      "public_sha256": "b598d5dc823169787f54d346862cb0a6574244a984d51047650d7a5bc01fbb51"
     },
     {
       "path": "x2d/research/history/USB_ENDPOINT_CORRECTION.md",
@@ -1349,12 +1381,14 @@
       "license": "MIT仅适用于本项目自写替代说明，不授权旧厂商材料",
       "upstream": "旧公開版本的资料；本轮不承接其固件结论",
       "changes": [
-        "明确撤下组件或证据内容；保留路径避免静默伪装成正常功能"
+        "明确撤下组件或证据内容；保留路径避免静默伪装成正常功能",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界"
       ],
       "review": "旧内容不纳入本轮公开候选；替代说明可纳入候选",
       "dependencies": "旧分析链不再提供；相关功能待独立重新实现",
       "prior_public_sha256": "47700e3714c38cbcbdaac31514d7dbdb99d1716176dfe873f354986ea047de5a",
-      "public_sha256": "3e48660e467e731f42fe865887b4edabfbadb8eaec5a8a1b0604ba1d3f51882b"
+      "public_sha256": "8f4cbd8881e5e84a1833ad6603a4c5d1d34fb0e338f5fe0ea2e264c0a59b12b1"
     },
     {
       "path": "x2d/subject-tracking/README.md",
@@ -1365,11 +1399,14 @@
       "rights_basis": "本项目原创修改适用MIT；现有仓库声明保留",
       "notices": "保留原有许可与必要的外部参考链接",
       "changes": [
-        "新增说明或通用适配；不把候选测试标成设备或法律验收"
+        "新增说明或通用适配；不把候选测试标成设备或法律验收",
+        "本次统一更新公开文档，保留组件验证边界",
+        "本次统一更新公开文档，保留组件验证边界",
+        "英文在前、中文在后，保持同一范围"
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "fd765a6ab311ff2ce6e8e86caa8c45bbe6e6e37290d5b334b03354233404d42c"
+      "public_sha256": "ba27332ace07258a10f3d1bde23e179caa559d42a2e1cd0aa9c29d65f12af0ac"
     },
     {
       "path": "x2d/subject-tracking/subject_tracker.c",
@@ -1434,5 +1471,6 @@
       "public_sha256": "5c240450415520ca90d7f597b964649e23cd94148e35b7e35eda063945aeb6ad"
     }
   ],
-  "publication_authorized": true
+  "publication_authorized": true,
+  "documentation_revision": "X1D II与全仓Markdown更新"
 }

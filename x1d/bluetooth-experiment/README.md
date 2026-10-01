@@ -1,69 +1,17 @@
-# X1D 临时蓝牙实验
+# X1D Communication Research
 
-目标是第一代 X1D-50c 的蓝牙发现验证：先让手机发现相机，或让相机发现用户指定的 X2D。打印协议不属于本次最小发现验证。
+Research into request state, timeouts and failures. Software simulation does not prove real communication; this page supplies no device connection procedures.
 
-## 当前状态
+This path remains a short topic entry. Firmware addresses, internal API analysis, deployment details, device records and internal work notes have been removed from the current document; related historical source has not been reverified.
 
-用户补充的外部验证：已经自行扫描蓝牙，未发现相机。该结果属于用户观察，扫描方式和当时相机状态尚未记录；不再将外部扫描列为尚未进行，也不据此断言蓝牙硬件不存在。
+See the [public index](../../README.md) for runnable components, dependencies and verification limits. This is not a device-operation or installation guide.
 
-已完成 HCI/H4 白名单命令封装、事件解析和离线自检，已交叉编译 ARM 独立程序，并在 X1D 临时内存中运行纯内存自检通过。随后按用户逐次授权，对假设为蓝牙接口的 UART5 进行了 H4 身份查询和 H5 同步尝试：**H4 发出 4 字节、H5 最终发出 8 字节，均未在各自回复窗口得到回应；蓝牙硬件接口仍未确认，没有扫描、广播、配对或打印成功的证据。**
+---
 
-- [构建与本机验证](build/validation.json)：记录编译器、源码和生成物校验；其中相机执行字段表示构建阶段状态。
-- [后续相机内存自检](build/sessions/memory-self-test-20260913T130011745568Z/result.json)：相机自检通过，蓝牙命令数为 0，本轮临时文件已清理，USB 句柄均已关闭。
-- 最初协议自检程序只有纯内存解析逻辑。后续独立 `native/uart_probe.c` 实现固定 UART5 的单次版本查询；没有控制器初始化或实际扫描实现。
-- [UART5 单次探测证据](build/uart-probe-r1/session/result.json)：目标程序自检通过，115200、8N1、无 RTS/CTS，发送 `01 01 10 00`，1.2 秒回复窗口中接收 0 字节。参数恢复校验、串口关闭、临时文件清理和 USB 句柄关闭均通过。随后独立只读检查的驱动累计计数为 `tx:4 rx:0`，与探测前 `tx:0 rx:0` 相符。
-- [后续 H5 单包尝试证据](build/uart-h5-r1/session/result.json)：用户同意尝试另一种无需硬件流控的协议。主机及相机纯内存自检均通过，但实机在发送前 150 毫秒静默检查阶段返回 `activity_before_query`，实际 `tx=0 rx=0`（程序未发送也未读取），未发出 H5 SYNC。参数恢复、串口关闭、临时文件清理及 USB 句柄关闭均通过，没有重试。随后独立只读驱动查询为 `tx:4 rx:8`，相较此前 `tx:4 rx:0` 新增八个接收字节；未读取原始内容，不能识别协议、归因于先前查询或认定蓝牙已响应。程序的预检查返回值未细分 POLLIN、错误或中断，驱动累计值也不是带时间戳的接收记录。
+## 中文
 
-2026-09-13 用户已授权在本目录创建代码、编译和离线测试，并提出使用相机临时内存。授权不包含永久安装、刷机、拍摄、照片访问、操作 X2D 或未知串口试写。
+研究请求状态、超时和失败处理。软件模拟不证明真实通信可用，本页不提供设备接入步骤。
 
-后续用户明确要求“假设那个串口是蓝牙的，尝试一下”，形成仅针对该 UART5 最小探测的追加授权。本轮执行一次身份查询，没有遍历端口、波特率，没有改 GPIO 或加载驱动。一次无回复不能证明该串口不是蓝牙，也不能区分未供电、波特率不符、初始化缺失和实际对端不同。
+此路径保留为简短主题入口。原有固件地址、内部接口分析、装载过程、设备记录与施工说明已从当前文档移除；相关历史源码未因此重新验收。
 
-## 实机只读结果
-
-### 后续有界握手尝试
-
-用户进一步明确要求按蓝牙假设尝试握手，随后执行独立的 `uart_h5_handshake_session.py`，证据见 [本轮结果](build/uart-h5-handshake-r1/session/result.json)。主机与相机纯内存自检通过。本轮先在 115200、8N1 下有界读取预先输入，再发送 H5 SYNC；只有合法同步回应才允许继续最小配置请求，没有自动重传、HCI 指令、扫描或 GPIO 改动。接收设置改为 `VMIN=1`，使就绪后的读取具有明确的一字节条件。
-
-**实测发送 8 字节，接收 0 字节，两秒窗口内无同步回应，因此未发送配置请求、未完成握手。** 参数恢复、串口关闭、临时文件清理、USB 句柄关闭均通过。此前驱动新增八个接收字节没有在本轮读取到，不能声称已取得或识别其内容。该实现只识别最小同步及不带可选配置字段的回复，不能称为完整 H5 主机栈；当前失败发生在同步阶段。
-
-握手尝试后独立只读检查的驱动累计计数为 `tx:12 rx:8`，相比此前 `tx:4 rx:8` 仅新增本轮发送的八个字节，USB 句柄关闭通过。
-
-以下为此前通过已有 USB 查询通道取得的实际结果：
-
-- 运行内核为 `3.14.28-1.0.0_ga+yocto+gf7d0ab5`，与研究发行包的内核版本字符串相同；尚未据此认定整机固件版本。
-- `/sys/class/bluetooth` 不存在；常见蓝牙模块及工具未找到，rfkill 只登记 `wlan`。
-- `modules_disabled` 为 0；发现 `tty_register_ldisc`、`tty_unregister_ldisc`、`request_firmware`、`rfkill_alloc` 的导出符号。这不是完整内核 ABI 兼容证明。
-- 没有 `/proc/config.gz` 或可用的内核 build/source 链接；没有机内 `modinfo`。
-- 存在 `ttymxc0/1/2/4`；只读文件描述符快照显示 `ttymxc0/1/2` 被使用，没有看到 `ttymxc4` 的打开者。**空闲不能证明它连接蓝牙，也不是打开或试写该端口的依据。**
-- 当前未提供可读取的 pinctrl debug 目录；设备树名称检查未找到蓝牙节点。
-- 无线 PCIe 功能读到 `14e4:43ec`、子系统 `1a3b:2217`。这些标识不能独立确定组合模块的蓝牙接口采用 UART 还是 USB。
-- USB 驱动目录中有 `hub`、`usb`、`usbfs`，但本次设备目录查询未取得设备 VID/PID；不能据此断言主板没有 USB 控制器或蓝牙线路。
-
-上述只读查询没有改 GPIO、串口配置或加载驱动；随后单次探测临时设置串口参数并校验恢复。所有已执行查询的 USB 句柄均已关闭。
-
-## 路线
-
-1. 已完成有界的 HCI/H4 命令和回复解析，模拟验证截断、错回复与错误状态；独立 UART 探测已有收发超时，发现流程仍未实现。
-2. 已完成面向 Cortex-A9 的独立程序交叉编译及相机纯内存自检。
-3. 取得蓝牙主机接口、引脚复用、供电/唤醒、波特率/流控与占用关系的真实证据后，才编入硬件绑定。
-4. 确认控制器后，再做有时限的 BLE 广播或被动扫描。退出必须检查停止结果，不能把进程退出当作控制器已经停止。
-
-最小 HCI 发现实验可研究直接通过已确认的 UART 与控制器通信，不必先把完整 Linux 蓝牙协议栈移植完。它不能代替后续完整连接、认证和打印协议实现。若硬件没有接出，用户态与内核态方案都不能用纯软件补出线路。
-
-## 参考
-
-- [BlueZ 5.66 HCI 定义](https://raw.githubusercontent.com/bluez/bluez/5.66/lib/hci.h)：用于核对标准 opcode、参数布局和事件类型。
-- [BTstack POSIX H4 移植](https://github.com/bluekitchen/btstack/tree/master/port/posix-h4)：说明 UART 用户态主机栈路线；不是 X1D 适配成功证据，也没有运行其默认初始化程序。
-- [既有无线芯片与驱动研究](../wireless-flash/IRQ_RESEARCH.md)：仅限其标注的官方 1.25.0 来源。
-
-本目录不能被称为可刷固件或已完成蓝牙支持。
-
-## 公开硬件资料与剩余阻碍
-
-后续固件复核已定位 Wedge 专有启用的 UART5 收发引脚，并比较三份板级配置；详见 [板级研究记录](BOARD_RESEARCH.md)。UART5 的实际连接对象仍未确定。
-
-AzureWave 的 [X1311 更名授权文件](https://device.report/m/09451fd9a07d8d86cd97a374606478fb7fafe53e36ee1b04e34bb86974f33519) 将哈苏模块与 `TLZ-CM2XXNF` Wi-Fi/BT 模块族关联；这不足以确定实机具体模块变体、蓝牙引脚连接或供电状态。同族存在蓝牙 USB 与 UART 变体，不能以芯片支持蓝牙推导主板已接出蓝牙接口。
-
-2016 年 [X1D SAR 报告](https://device.report/m/2afb2800f14159dca90c12de962536dd7ae0ee18a5ea4fdbda41f9114ef409ba.pdf) 的无线技术表只列 Wi-Fi。此次可访问文件共 27 页，原报告目录标为 66 页，未包含后续天线图附件。它未提供可确认蓝牙线路或禁用方式的证据，不能用未列蓝牙证明硬件不支持。
-
-下一步所需的是具体主板蓝牙主机接口及供电/唤醒连接证据，例如可核对的板级原理图或模块实际连线资料。针对 UART5 的两轮有限尝试如上；不自动扩展至端口遍历、波特率遍历或 GPIO 改动。发现 X2D 的目标仍未完成，也没有可报告的实扫设备数量。
+可运行组件、依赖和验证范围见 [公开索引](../../README.md)。本页不是设备操作或安装指南。

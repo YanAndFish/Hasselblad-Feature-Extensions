@@ -1,23 +1,17 @@
-# 第一代 X2D 4.2.0 / 55V 临时拍照三档速度实验
+# X2D AF and Target-Selection Research
 
-## 当前实机结果
+Research into target regions, parameter selection and state transitions. Generic policies and camera backends require separate verification; parameter multipliers or simulated curves alone do not prove autofocus speed improvements.
 
-已先撤回旧快档补丁并核验原厂函数，再安装新版本并核验机内完整函数哈希。
-`last-install-result.json` 和 `prepared-plan.json` 为当前安装证据，状态 `ACTIVE_UNTIL_RESTART_VERIFIED`。
+This path remains a short topic entry. Firmware addresses, internal API analysis, deployment details, device records and internal work notes have been removed from the current document; related historical source has not been reverified.
 
-- 拍照快档 type 0：动态计算成功后的结果 ×3。
-- 拍照慢档 type 1：动态计算成功后的结果 ×3。
-- 拍照更慢档 type 2：动态计算成功后的结果 ×2。
-- 保留原厂帧率调整。模式2下以上三档的最终输出限幅到0..21844，包含回退值限幅；回退值本身不乘倍率。
-- 安装时回读所核对的三处条件相位加速参数，均不超过1.5。数值限幅不是镜头机械安全上限认证，也不代表物理速度或整个对焦耗时按倍率变化。
-- 类型3..5、其他计算模式和直接目标位置命令未修改。动态结果的详细调试日志块用于倍率及限幅指令；失败日志保留。
-- 未挂探针，安装结束核验106个线程无追踪、无暂停。实发最大速度未测量。
-- 只修改当前相机服务内存，拔USB不会撤回；服务重启或完整关机重开恢复原厂。不修改机身文件、镜头、MCU或FPGA固件。当前只核对55V，换镜头前先撤回或重启。
+See the [public index](../../../README.md) for runnable components, dependencies and verification limits. This is not a device-operation or installation guide.
 
-## 核验和恢复
+---
 
-1402组原厂/候选 AArch64 指令对照、21组事务失败分支检查通过。外部getter由模型替代，不能等同实机运动测试。
-`Restore-Experiment.ps1`使用当前保存的身份和恢复材料撤回；正常安装入口要求先恢复原厂，拒绝叠加未知补丁。
-`Capture-Scan.ps1`保持封禁，不得再次运行会冻结画面的全线程strace探针。
+## 中文
 
-[六类速度流程](AF_SPEED_FLOW.md)。旧快档三倍完整材料见 `verified-x3-fast-only/`，两倍计时实验见 `verified-x2-window/`，初始1.5文档为历史资料。
+研究目标区域、参数选择和状态迁移。通用策略与相机后端分别验证，参数倍数或模拟曲线不能单独证明实际对焦提速。
+
+此路径保留为简短主题入口。原有固件地址、内部接口分析、装载过程、设备记录与施工说明已从当前文档移除；相关历史源码未因此重新验收。
+
+可运行组件、依赖和验证范围见 [公开索引](../../../README.md)。本页不是设备操作或安装指南。
