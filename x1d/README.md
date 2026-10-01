@@ -1,6 +1,6 @@
 # First-Generation X1D Components
 
-This directory retains first-generation X1D research source and offline components. Independently reproducible entry points are listed in [build methods](../BUILDABILITY.md); old candidates are not a buildable complete installer.
+This directory retains first-generation X1D research source and offline components. Independently reproducible entry points are listed in [build methods](../docs/build/BUILDABILITY.md); old candidates are not a buildable complete installer.
 
 | Area | Scope |
 | --- | --- |
@@ -10,13 +10,13 @@ This directory retains first-generation X1D research source and offline componen
 | Replay/color | Preview/full-image separation, explicit ICC tools and historical candidates; full backend still needs verification |
 | AF/combined candidates | Research directories with concise summaries, not device procedures |
 
-Second-generation face-priority excerpts are in [X1D II](../X1D2/README.md). Research photographs, manufacturer assets and device logs are not supplied in this addition. See [inputs](../BUILD_INPUTS.md) and [source review](../SOURCE_REVIEW.md).
+Second-generation face-priority excerpts are in [X1D II](../X1D2/README.md). Research photographs, manufacturer assets and device logs are not supplied in this addition. See [inputs](../docs/build/BUILD_INPUTS.md) and [source review](../docs/publication/SOURCE_REVIEW.md).
 
 ---
 
 ## 中文
 
-本目录保留第一代 X1D 的功能研究源码与离线组件。可独立验证的入口以 [构建方法](../BUILDABILITY.md)为准，旧候选不代表完整安装包已可构建。
+本目录保留第一代 X1D 的功能研究源码与离线组件。可独立验证的入口以 [构建方法](../docs/build/BUILDABILITY.md)为准，旧候选不代表完整安装包已可构建。
 
 | 方向 | 内容 |
 | --- | --- |
@@ -26,4 +26,4 @@ Second-generation face-priority excerpts are in [X1D II](../X1D2/README.md). Res
 | 回放与颜色 | 预览／全尺寸主图区分、显式 ICC 工具及历史候选；完整后端仍待验证 |
 | 对焦与组合 | 保留研究目录，文档提供简短主题说明，不提供设备操作流程 |
 
-二代人脸优先另见 [X1D II](../X1D2/README.md)。不提供本次研究照片、厂商资源或设备日志。输入与缺口见 [BUILD_INPUTS.md](../BUILD_INPUTS.md)，来源见 [SOURCE_REVIEW.md](../SOURCE_REVIEW.md)。
+二代人脸优先另见 [X1D II](../X1D2/README.md)。不提供本次研究照片、厂商资源或设备日志。输入与缺口见 [BUILD_INPUTS.md](../docs/build/BUILD_INPUTS.md)，来源见 [SOURCE_REVIEW.md](../docs/publication/SOURCE_REVIEW.md)。

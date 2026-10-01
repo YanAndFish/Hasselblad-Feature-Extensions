@@ -11,7 +11,7 @@ python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/p
 - [Tracking](subject_tracking/README.md): grayscale templates and stale observations.
 - [Display controls](display_controls/README.md): design boundaries.
 
-This verification covers ten C components, eleven Python checks and memory-merge comparisons. Historical region models and AF probes were not reaccepted and are not default steps. See [updates](../../PUBLIC_UPDATES.md).
+This verification covers ten C components, eleven Python checks and memory-merge comparisons. Historical region models and AF probes were not reaccepted and are not default steps. See [updates](../../docs/publication/PUBLIC_UPDATES.md).
 
 ---
 
@@ -28,4 +28,4 @@ python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/p
 - [主体跟踪](subject_tracking/README.md)：灰度模板与过期观测处理。
 - [显示控制](display_controls/README.md)：设计边界说明。
 
-本轮包含十个 C 组件、十一项 Python 检查及内存合成对照。历史地区模型、对焦探针等没有在本次更新中重新验收，不作为默认步骤。摘要见 [公开更新](../../PUBLIC_UPDATES.md)。
+本轮包含十个 C 组件、十一项 Python 检查及内存合成对照。历史地区模型、对焦探针等没有在本次更新中重新验收，不作为默认步骤。摘要见 [公开更新](../../docs/publication/PUBLIC_UPDATES.md)。

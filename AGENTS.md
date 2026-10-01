@@ -1,6 +1,6 @@
 # 本项目 Agent 规则
 
-先阅读 README.md、PUBLICATION_STATUS.md、SOURCE_REVIEW.md 和 DIRECTORY_LAYOUT.md。
+先阅读 [README.md](README.md)、[公开状态](docs/publication/PUBLICATION_STATUS.md)、[来源规则](docs/publication/SOURCE_REVIEW.md)和[目录说明](docs/project/DIRECTORY_LAYOUT.md)。
 
 - 本项目是独立的非官方公开源码项目；当前没有可安装发行包。
 - 只在当前用户选择的工作区内施工。外部源码只作明确授权的只读参考，不修改来源项目。

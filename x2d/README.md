@@ -15,7 +15,7 @@ Public entry points focus on original pixel synthesis, image utilities, target p
 
 Historical paths retain short topic summaries rather than firmware addresses, internal API analysis or device records. Older source and scripts are outside this update's component verification and are not installation instructions.
 
-See [build methods](../BUILDABILITY.md) and [updates](../PUBLIC_UPDATES.md). This directory is not an implementation for [X1D II](../X1D2/README.md) or [X2D II](../x2d2/README.md).
+See [build methods](../docs/build/BUILDABILITY.md) and [updates](../docs/publication/PUBLIC_UPDATES.md). This directory is not an implementation for [X1D II](../X1D2/README.md) or [X2D II](../x2d2/README.md).
 
 ---
 
@@ -36,4 +36,4 @@ See [build methods](../BUILDABILITY.md) and [updates](../PUBLIC_UPDATES.md). Thi
 
 历史路径保留为简短主题页，固件地址、内部接口分析和设备记录不再出现在当前 Markdown 中。旧源码和脚本不属于本轮新增组件验证，不能把主题页当作安装说明。
 
-构建见 [BUILDABILITY.md](../BUILDABILITY.md)，来源见 [PUBLIC_UPDATES.md](../PUBLIC_UPDATES.md)。本目录不是 [X1D II](../X1D2/README.md)或 [X2D II](../x2d2/README.md)的实现。
+构建见 [BUILDABILITY.md](../docs/build/BUILDABILITY.md)，来源见 [PUBLIC_UPDATES.md](../docs/publication/PUBLIC_UPDATES.md)。本目录不是 [X1D II](../X1D2/README.md)或 [X2D II](../x2d2/README.md)的实现。

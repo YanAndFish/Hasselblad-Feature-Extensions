@@ -1,17 +1,35 @@
 {
-  "scope": "X1D II补充与全仓Markdown核对；不等于旧源码或Git历史全面审核",
+  "scope": "X1D II补充、全仓Markdown核对与按用途归档；不等于旧源码或Git历史全面审核",
   "status": "reviewed_for_authorized_publication",
   "publication_authorized": true,
   "device_accessed": false,
   "history_rewritten": false,
   "legal_clearance_claimed": false,
-  "markdown_reviewed": 274,
-  "markdown_updated": 272,
+  "markdown_reviewed": 275,
+  "markdown_updated": 274,
   "readme_language_order": "English then Chinese",
-  "bilingual_readmes": 66,
+  "bilingual_readmes": 67,
   "instruction_files_preserved": [
-    "AGENTS.md",
     "x2d/AGENTS.md"
+  ],
+  "instruction_reading_links_updated": [
+    "AGENTS.md"
+  ],
+  "instruction_rules_unchanged": true,
+  "document_relocations": {
+    "BUILDABILITY.md": "docs/build/BUILDABILITY.md",
+    "BUILD_INPUTS.md": "docs/build/BUILD_INPUTS.md",
+    "PUBLICATION_SCOPE.md": "docs/publication/PUBLICATION_SCOPE.md",
+    "PUBLICATION_STATUS.md": "docs/publication/PUBLICATION_STATUS.md",
+    "PUBLIC_UPDATES.md": "docs/publication/PUBLIC_UPDATES.md",
+    "SOURCE_REVIEW.md": "docs/publication/SOURCE_REVIEW.md",
+    "STAGE_DELIVERY.md": "docs/publication/STAGE_DELIVERY.md",
+    "DIRECTORY_LAYOUT.md": "docs/project/DIRECTORY_LAYOUT.md"
+  },
+  "root_markdown": [
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "README.md"
   ],
   "third_party_upstream": "https://github.com/ShiqiYu/libfacedetection/tree/acf7b254121927e7dced30e233a2e03119f28ea2",
   "records": [
@@ -181,35 +199,13 @@
     {
       "path": "AGENTS.md",
       "purpose": "工作规则",
-      "origin": "项目规则保持原文",
+      "origin": "项目规则仅更新阅读入口，权限不变",
       "license": "现有项目规则",
       "changes": [
-        "核对并保持规则原文"
+        "仅调整阅读入口，权限和规则保持不变"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "d9a22bca585d0cf9aef1fb3c4abf3869122a07fb5a90b95e6bfd7cb6856204d5"
-    },
-    {
-      "path": "BUILD_INPUTS.md",
-      "purpose": "公开用途、索引、方法或历史主题摘要",
-      "origin": "项目自写公开说明",
-      "license": "MIT用于项目原创说明",
-      "changes": [
-        "更新过时说明并移除内部施工与设备细节"
-      ],
-      "review": "本次文档核对通过",
-      "public_sha256": "837e99521c44e8474eed2264b4c8878abad6d804406b944c6480e69b27fcef98"
-    },
-    {
-      "path": "BUILDABILITY.md",
-      "purpose": "公开用途、索引、方法或历史主题摘要",
-      "origin": "项目自写公开说明",
-      "license": "MIT用于项目原创说明",
-      "changes": [
-        "更新过时说明并移除内部施工与设备细节"
-      ],
-      "review": "本次文档核对通过",
-      "public_sha256": "2322f143bf146ef6f0ec21957554c77a29d53fbadfbd6203ce18436063da86cd"
+      "public_sha256": "88f0904cb2485d641eaaf072986695e699371a79d05d3b2c90c4fdbc51c180c4"
     },
     {
       "path": "CodeTests/README.md",
@@ -221,7 +217,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "1a466e47c91a478df8bdd0e5d595f911c709f28dd8e09575955767d1f97c6df1"
+      "public_sha256": "9660d8385c9133227a0a41912f6eeb07f3bfcee8ffca0be292f3b6008ed9af1b"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -232,51 +228,123 @@
         "更新过时说明并移除内部施工与设备细节"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "ad4572407580876525ccf5690a8ff3c84b5f4bec551e0bde4a0969b14632dc8b"
+      "public_sha256": "988208edcb393f5fc2721edd1b50127796bda4f75c9afbe8412e37f66a6051ac"
     },
     {
-      "path": "DIRECTORY_LAYOUT.md",
+      "path": "docs/build/BUILD_INPUTS.md",
       "purpose": "公开用途、索引、方法或历史主题摘要",
       "origin": "项目自写公开说明",
       "license": "MIT用于项目原创说明",
       "changes": [
-        "更新过时说明并移除内部施工与设备细节"
+        "更新过时说明并移除内部施工与设备细节",
+        "按用途归档并更新引用"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "91c7eca68c9cf0a619ea2d8161d8e8ac93e36e968f5f20c7f621e2490f6cea1d"
+      "public_sha256": "8ba6519d78abad683fcf38ba87f5d18cba1098b193f98555479b9991cbd7a90d",
+      "previous_path": "BUILD_INPUTS.md"
     },
     {
-      "path": "PUBLIC_UPDATES.md",
+      "path": "docs/build/BUILDABILITY.md",
       "purpose": "公开用途、索引、方法或历史主题摘要",
       "origin": "项目自写公开说明",
       "license": "MIT用于项目原创说明",
       "changes": [
-        "更新过时说明并移除内部施工与设备细节"
+        "更新过时说明并移除内部施工与设备细节",
+        "按用途归档并更新引用"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "88a1162f9a406baec172c9b7dd68c92872f27aabe4f677fe35bf19e0ec64f922"
+      "public_sha256": "aff0e2691db5e6450a65587d43a9cc23ccead7eda831c0bc6d2bb3820e50ef19",
+      "previous_path": "BUILDABILITY.md"
     },
     {
-      "path": "PUBLICATION_SCOPE.md",
+      "path": "docs/project/DIRECTORY_LAYOUT.md",
       "purpose": "公开用途、索引、方法或历史主题摘要",
       "origin": "项目自写公开说明",
       "license": "MIT用于项目原创说明",
       "changes": [
-        "更新过时说明并移除内部施工与设备细节"
+        "更新过时说明并移除内部施工与设备细节",
+        "按用途归档并更新引用"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "43f5a4c979432dfafbb54c9f42d2e4da43c81e38b6c7555b55c1b693d81e4a23"
+      "public_sha256": "f84d632e1fbd0a1f4c3efdd434dcca95b5e10bc24d4cbf9836c8637db79991a0",
+      "previous_path": "DIRECTORY_LAYOUT.md"
     },
     {
-      "path": "PUBLICATION_STATUS.md",
+      "path": "docs/publication/PUBLIC_UPDATES.md",
       "purpose": "公开用途、索引、方法或历史主题摘要",
       "origin": "项目自写公开说明",
       "license": "MIT用于项目原创说明",
       "changes": [
-        "更新过时说明并移除内部施工与设备细节"
+        "更新过时说明并移除内部施工与设备细节",
+        "按用途归档并更新引用"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "5edebc98ad3ed824ebd697865669d32bab902568f825d6f1ece4607d96ec7160"
+      "public_sha256": "b2cf5426485f9bdee01d006750aab8ecc5dfacbdd84065ade64d87302ab5d611",
+      "previous_path": "PUBLIC_UPDATES.md"
+    },
+    {
+      "path": "docs/publication/PUBLICATION_SCOPE.md",
+      "purpose": "公开用途、索引、方法或历史主题摘要",
+      "origin": "项目自写公开说明",
+      "license": "MIT用于项目原创说明",
+      "changes": [
+        "更新过时说明并移除内部施工与设备细节",
+        "按用途归档并更新引用"
+      ],
+      "review": "本次文档核对通过",
+      "public_sha256": "6ade5f42e9711beeef575b7d2fb960babe721d5c0b30104852f2816e6bad2598",
+      "previous_path": "PUBLICATION_SCOPE.md"
+    },
+    {
+      "path": "docs/publication/PUBLICATION_STATUS.md",
+      "purpose": "公开用途、索引、方法或历史主题摘要",
+      "origin": "项目自写公开说明",
+      "license": "MIT用于项目原创说明",
+      "changes": [
+        "更新过时说明并移除内部施工与设备细节",
+        "按用途归档并更新引用"
+      ],
+      "review": "本次文档核对通过",
+      "public_sha256": "fd6db683b79c7345ad6ca3656a7256c9347b09bef066d6b9f2afc881c5e0886c",
+      "previous_path": "PUBLICATION_STATUS.md"
+    },
+    {
+      "path": "docs/publication/SOURCE_REVIEW.md",
+      "purpose": "公开用途、索引、方法或历史主题摘要",
+      "origin": "项目自写公开说明",
+      "license": "MIT用于项目原创说明",
+      "changes": [
+        "更新过时说明并移除内部施工与设备细节",
+        "按用途归档并更新引用"
+      ],
+      "review": "本次文档核对通过",
+      "public_sha256": "5c9deb75b60463873f7e8a3ff22c90aae7ad1d2b46184321e394ca95cbdc99a7",
+      "previous_path": "SOURCE_REVIEW.md"
+    },
+    {
+      "path": "docs/publication/STAGE_DELIVERY.md",
+      "purpose": "公开用途、索引、方法或历史主题摘要",
+      "origin": "项目自写公开说明",
+      "license": "MIT用于项目原创说明",
+      "changes": [
+        "更新过时说明并移除内部施工与设备细节",
+        "按用途归档并更新引用"
+      ],
+      "review": "本次文档核对通过",
+      "public_sha256": "709b6e1978a4de1cd17bc4eff865451acdd3f8b028336c79bb127408225d7875",
+      "previous_path": "STAGE_DELIVERY.md"
+    },
+    {
+      "path": "docs/README.md",
+      "purpose": "公开用途、索引、方法或历史主题摘要",
+      "origin": "项目自写公开说明",
+      "license": "MIT用于项目原创说明",
+      "changes": [
+        "更新过时说明并移除内部施工与设备细节",
+        "英文在前、中文在后"
+      ],
+      "review": "本次文档核对通过",
+      "public_sha256": "863785d49a4e3baf4377b5077b6face8fafad2f125fdf463290083aa4587587a"
     },
     {
       "path": "README.md",
@@ -288,7 +356,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "221417f47cb2ea83ab5a6b6214bd506b90fca446e496b9e1ec27415fc752da9b"
+      "public_sha256": "f0a370b1a77b102f2ce64e217adf6a1b640dd71a299fb7464a607a45a50b6a5e"
     },
     {
       "path": "research/DEBUG_READ_BATCH.md",
@@ -366,28 +434,6 @@
       ],
       "review": "本次文档核对通过",
       "public_sha256": "5da2313408d265ca343d38be4a6db2bb07ed23ba47b7152dd5051a78f1c46f3e"
-    },
-    {
-      "path": "SOURCE_REVIEW.md",
-      "purpose": "公开用途、索引、方法或历史主题摘要",
-      "origin": "项目自写公开说明",
-      "license": "MIT用于项目原创说明",
-      "changes": [
-        "更新过时说明并移除内部施工与设备细节"
-      ],
-      "review": "本次文档核对通过",
-      "public_sha256": "d244caeb8ecc8bc0ab1dd0e822398d6ce36f8704b175a713c9263e92f006cade"
-    },
-    {
-      "path": "STAGE_DELIVERY.md",
-      "purpose": "公开用途、索引、方法或历史主题摘要",
-      "origin": "项目自写公开说明",
-      "license": "MIT用于项目原创说明",
-      "changes": [
-        "更新过时说明并移除内部施工与设备细节"
-      ],
-      "review": "本次文档核对通过",
-      "public_sha256": "1cdd547107d0e82147ec1317154b4bcfcfb1308876a76118ddfc54df770195f5"
     },
     {
       "path": "x1d/af-experiment/AF_BIT_DEPTH.md",
@@ -1842,7 +1888,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "094bc7f6e43b173621fe8f947102a7449047da439fc05d3522a719df686b4522"
+      "public_sha256": "bcf394d0b750ae5776222f91eff19d91530ffe3f12f2b36664801ca2de25e817"
     },
     {
       "path": "x1d/recovery-review/20260910-usb-sd/EVIDENCE.md",
@@ -2096,7 +2142,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "0b68eee451cb3c114d1c235e8004da9b6d9564ba30e0ec1d99d1ebb11ef7a5ed"
+      "public_sha256": "7cec0e52103adff9a3a30eed6fd731660a3a7301fbf7e5765c016b465159be3c"
     },
     {
       "path": "x1d/wifi-region/HOTSPOT_TEST.md",
@@ -2644,7 +2690,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "cc087c34033d70a7b12290151bbc947f7693ad725a0dfe7f2250d3889691f449"
+      "public_sha256": "f7c22e3f6412439263069a0c103966541a679e4e14f3ce9f5ea1fb52f16ce3ed"
     },
     {
       "path": "x2d/AGENTS.md",
@@ -2667,7 +2713,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "6362fcf99b6b8a7119bf6e50d18f38968a9850a19a0c24b13c3642f03bafae51"
+      "public_sha256": "7da43d295007418080d25309e542d0320d93c81fc7d91681e55e916396e612fe"
     },
     {
       "path": "x2d/CodeTests/face_edge_fix/README.md",
@@ -2703,7 +2749,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "d64179fcb72e80f7f67e47940c751323fb480eacfc1bb751905a141fd29dddf8"
+      "public_sha256": "0b49b61d2d776635c772488ac488c5e03fdf4ae2cb53f10e5b1609f14c9d9f9a"
     },
     {
       "path": "x2d/CodeTests/README.md",
@@ -2715,7 +2761,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "80151a8efafa028429ca4dd2907f5fab4743f8c371cc038f05868a6012fe2285"
+      "public_sha256": "c90431bb10453450bfc483dc40d9e6a5b78ddc95083278ae1738b213c043f3b1"
     },
     {
       "path": "x2d/CodeTests/shutter-animation-preview/MIGRATION.md",
@@ -3055,7 +3101,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "3cb14b9d34ab60573963f560a105d9fa07d1baf86c434da13ba3d83bc3e75f11"
+      "public_sha256": "926df43c347004b226ac9659425e24184ff3c47c39ffe7a7854c823c01058b5e"
     },
     {
       "path": "x2d/research/4.2.0/ONBOARD_RADIO.md",
@@ -3198,7 +3244,7 @@
         "更新过时说明并移除内部施工与设备细节"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "c560ac986246228d7de7478f6a07159b7e7e689c77b4bea06e16493e560dc84b"
+      "public_sha256": "9a3752335415237749e6eb48fe9e2397154a8de7802c52cf3f94b513987f26a2"
     },
     {
       "path": "x2d/subject-tracking/README.md",
@@ -3222,7 +3268,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "314d7106b7733335a09a08d49eab1f0c045edd0500f2d7e5aa2a4facbce85195"
+      "public_sha256": "2e5382ab6a55685c15ba6f4c1825e0de498a12faea093483d174a81cc03118f6"
     },
     {
       "path": "x2d2/README.md",
@@ -3234,7 +3280,7 @@
         "英文在前、中文在后"
       ],
       "review": "本次文档核对通过",
-      "public_sha256": "4d906f48966af07cbc54c07fc072df8765ca7e2fbd24d1b8a039320965fd1f1a"
+      "public_sha256": "5ff1b2a77bcae167a960f9a813f5398ab4fb24491f556859f4fd7cd2d0f82394"
     },
     {
       "path": "x2d2/research/1.3.16.2/REGION.md",
@@ -3269,7 +3315,7 @@
       "origin": "本项目自写公开入口与实际离线检查",
       "license": "MIT用于原创内容",
       "review": "无设备、照片或厂商输入",
-      "public_sha256": "6ba863f1399402eb1bbce8fabedf7a76ca20346a023aea0492563d6c0b842be1"
+      "public_sha256": "fc47ae2dc31e76f25f200194d5b8cdc626fe1bcf62dc9afc247657cc1b7483ae"
     }
   ]
 }

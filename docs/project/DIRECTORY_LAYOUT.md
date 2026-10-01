@@ -7,7 +7,10 @@
 | `x2d/` | X2D 像素、图像工具、策略与界面 |
 | `x2d2/` | X2D II 主题索引，区别于 X1D II |
 | `scripts/` | 显式输入／输出的验证入口 |
-| `publication/` | 来源、许可和验证摘要 |
+| `docs/build/` | 构建方法和依赖说明 |
+| `docs/publication/` | 公开范围、状态和来源说明 |
+| `docs/project/` | 全项目目录与规范 |
+| `publication/` | 机器可读的来源、许可和验证摘要 |
 
 README 说明用途、依赖、方法与限制。`CodeTests` 是代码契约，`FunctionalTests` 是功能用例，`ProjectScenarioTests` 是完整场景；仅有实际材料时建立目录。
 

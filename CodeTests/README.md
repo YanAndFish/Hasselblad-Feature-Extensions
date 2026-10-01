@@ -1,6 +1,6 @@
 # Offline Verification Index
 
-Recommended entry points and dependencies are in [BUILDABILITY.md](../BUILDABILITY.md). They use synthetic inputs or software substitutes and do not connect to a camera.
+Recommended entry points and dependencies are in [BUILDABILITY.md](../docs/build/BUILDABILITY.md). They use synthetic inputs or software substitutes and do not connect to a camera.
 
 | Area | Entry |
 | --- | --- |
@@ -16,7 +16,7 @@ Earlier Node-client substitute tests and helper compilation were not repeated fo
 
 ## 中文
 
-推荐入口和依赖见 [BUILDABILITY.md](../BUILDABILITY.md)。所有推荐测试使用自造输入或软件替身，不连接相机。
+推荐入口和依赖见 [BUILDABILITY.md](../docs/build/BUILDABILITY.md)。所有推荐测试使用自造输入或软件替身，不连接相机。
 
 | 方向 | 入口 |
 | --- | --- |

@@ -15,4 +15,4 @@ X1D II 发布器缺少 `af_request.h`、`proxy_bridge.h`、`preview_resize.h` �
 
 旧目标构建仍有运行库、生成输入和组合适配缺口，未在本次重新闭环。不要把历史设备脚本当默认命令，缺文件时明确失败，不复用旧成功报告。
 
-真实拍摄、显影、RAW、相册、HEIF 及安装包不在公开测试范围。见 [构建方法](BUILDABILITY.md)与[状态](PUBLICATION_STATUS.md)。
+真实拍摄、显影、RAW、相册、HEIF 及安装包不在公开测试范围。见 [构建方法](BUILDABILITY.md)与[状态](../publication/PUBLICATION_STATUS.md)。

@@ -8,4 +8,4 @@
 
 既有研究源码的全面权利审核未因文档整理自动完成；Git 历史未重写，当前清理不能撤回过去公开的内容。原创 MIT 不覆盖第三方权利，品牌名仅说明研究对象，技术审核不能保证无争议。
 
-详见 [来源规则](SOURCE_REVIEW.md)、[更新](PUBLIC_UPDATES.md)和[依赖](BUILD_INPUTS.md)。
+详见 [来源规则](SOURCE_REVIEW.md)、[更新](PUBLIC_UPDATES.md)和[依赖](../build/BUILD_INPUTS.md)。

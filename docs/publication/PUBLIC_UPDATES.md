@@ -16,7 +16,7 @@
 
 像素研究已完成普通内存与固定文件算法对照，覆盖跨批次、双路消费、失败释放和背压，另有十个 C 组件和十一项 Python 检查。X1D II 检测库独立编译及自造空白 BGR 图调用通过，不代表发布器、检测质量或真实对焦通过。
 
-方法见 [构建说明](BUILDABILITY.md)，来源见 [像素审核](publication/x2d-update-review.json)和[X1D II 与文档审核](publication/x1dii-update-review.json)。
+方法见 [构建说明](../build/BUILDABILITY.md)，来源见 [像素审核](../../publication/x2d-update-review.json)和[X1D II 与文档审核](../../publication/x1dii-update-review.json)。
 
 ## 公开边界
 

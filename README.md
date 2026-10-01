@@ -47,7 +47,7 @@ This research investigates enabling ordinary flash during electronic-shutter cap
 - **Flash and exposure timing:** ordinary-flash policies, group/power settings and optional half-press updates, with original compensation responsibilities preserved. Offline policy checks do not establish physical synchronization or radio transmission.
 - **UI and state restoration:** original animation, abstract audio routing, settings persistence and failure recovery. No audio assets, manufacturer resources or complete device installer are supplied.
 
-See [first-generation X1D](x1d/README.md) and the [build scope](BUILD_INPUTS.md) for available components and remaining dependencies.
+See [first-generation X1D](x1d/README.md) and the [build scope](docs/build/BUILD_INPUTS.md) for available components and remaining dependencies.
 
 ## X1D II research highlights
 
@@ -66,13 +66,15 @@ python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/p
 python -B scripts/build_x1dii_detector.py --compiler zig --build-dir ./outputs/x1dii-detector
 ```
 
-The pixel entry checks plain-memory results against a fixed file algorithm, plus ten C component checks and eleven Python tests. The X1D II entry builds only the detector and checks a synthetic blank image; it does not build the incomplete publisher. See [build methods](BUILDABILITY.md) and [inputs](BUILD_INPUTS.md).
+The pixel entry checks plain-memory results against a fixed file algorithm, plus ten C component checks and eleven Python tests. The X1D II entry builds only the detector and checks a synthetic blank image; it does not build the incomplete publisher. See [build methods](docs/build/BUILDABILITY.md) and [inputs](docs/build/BUILD_INPUTS.md).
 
 ## Publication notes
 
-- [Updates](PUBLIC_UPDATES.md) and [verification status](PUBLICATION_STATUS.md)
-- [Scope](PUBLICATION_SCOPE.md), [source review](SOURCE_REVIEW.md), and [contributing](CONTRIBUTING.md)
-- [Layout](DIRECTORY_LAYOUT.md) and [stage summary](STAGE_DELIVERY.md)
+Browse the grouped [documentation index](docs/README.md).
+
+- [Updates](docs/publication/PUBLIC_UPDATES.md) and [verification status](docs/publication/PUBLICATION_STATUS.md)
+- [Scope](docs/publication/PUBLICATION_SCOPE.md), [source review](docs/publication/SOURCE_REVIEW.md), and [contributing](CONTRIBUTING.md)
+- [Layout](docs/project/DIRECTORY_LAYOUT.md) and [stage summary](docs/publication/STAGE_DELIVERY.md)
 
 Current documents use concise topic summaries, without historical firmware addresses, device records or internal work logs. Git history has not been rewritten; documentation cleanup is not a comprehensive rights review of older source.
 
@@ -129,7 +131,7 @@ X1D II 与 X2D II 是不同机型；二代人脸优先源码位于 `X1D2/`。历
 - **引闪与曝光时序**：普通闪光策略、分组／功率设置与可选半按更新，保留原有补偿责任。离线策略检查不证明物理同步或无线发射已完成。
 - **界面与状态恢复**：原创动画、抽象声音路由、设置持久化和失败恢复，不附带音频、厂商资源或完整设备安装包。
 
-可公开组件和依赖缺口见[第一代 X1D](x1d/README.md)与[构建范围](BUILD_INPUTS.md)。
+可公开组件和依赖缺口见[第一代 X1D](x1d/README.md)与[构建范围](docs/build/BUILD_INPUTS.md)。
 
 ### X1D 二代主要研究内容
 
@@ -148,13 +150,15 @@ python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/p
 python -B scripts/build_x1dii_detector.py --compiler zig --build-dir ./outputs/x1dii-detector
 ```
 
-像素入口验证普通内存与固定文件算法的一致性，另运行十个 C 组件检查和十一项 Python 测试。X1D II 入口只编译开源检测库并测试自造空白图，不编译缺少依赖的完整发布器。详细输入见 [构建方法](BUILDABILITY.md)和[依赖清单](BUILD_INPUTS.md)。
+像素入口验证普通内存与固定文件算法的一致性，另运行十个 C 组件检查和十一项 Python 测试。X1D II 入口只编译开源检测库并测试自造空白图，不编译缺少依赖的完整发布器。详细输入见 [构建方法](docs/build/BUILDABILITY.md)和[依赖清单](docs/build/BUILD_INPUTS.md)。
 
 ### 公开说明
 
-- [本次更新](PUBLIC_UPDATES.md)与[当前验证状态](PUBLICATION_STATUS.md)
-- [公开范围](PUBLICATION_SCOPE.md)、[来源审核](SOURCE_REVIEW.md)与[贡献说明](CONTRIBUTING.md)
-- [目录索引](DIRECTORY_LAYOUT.md)与[阶段成果](STAGE_DELIVERY.md)
+按类别浏览[文档索引](docs/README.md)。
+
+- [本次更新](docs/publication/PUBLIC_UPDATES.md)与[当前验证状态](docs/publication/PUBLICATION_STATUS.md)
+- [公开范围](docs/publication/PUBLICATION_SCOPE.md)、[来源审核](docs/publication/SOURCE_REVIEW.md)与[贡献说明](CONTRIBUTING.md)
+- [目录索引](docs/project/DIRECTORY_LAYOUT.md)与[阶段成果](docs/publication/STAGE_DELIVERY.md)
 
 当前文档使用简短主题说明，移除了历史固件地址、设备记录与内部施工过程。Git 历史仍保留；既有旧源码的全面权利审核也未因此自动完成。
 

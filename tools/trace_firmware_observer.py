@@ -3,7 +3,7 @@
 # Copyright (c) 2026 Hasselblad Feature Extensions contributors
 
 def unavailable(*args, **kwargs):
-    raise RuntimeError('This firmware analysis component is excluded from the public project. See PUBLIC_UPDATES.md.')
+    raise RuntimeError('This firmware analysis component is excluded from the public project. See docs/publication/PUBLIC_UPDATES.md.')
 
 
 def __getattr__(name):

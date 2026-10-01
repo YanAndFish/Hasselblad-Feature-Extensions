@@ -10,7 +10,7 @@ python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/p
 
 Run from the root with Python 3.11+ and Zig 0.13.0. Inputs are synthetic, without camera access. Comparisons against the [fixed file algorithm](Fixtures/frozen-row-merge/README.md), cross-batch and failure-release checks passed, alongside ten C components and eleven Python checks.
 
-Optional tools require NumPy, tifffile, rawpy, Pillow or libjpeg and are outside default testing. DNG is only a test container. Real capture, manufacturer rendering, 3FR, album and HEIF backends are not provided. See [updates](../../../PUBLIC_UPDATES.md).
+Optional tools require NumPy, tifffile, rawpy, Pillow or libjpeg and are outside default testing. DNG is only a test container. Real capture, manufacturer rendering, 3FR, album and HEIF backends are not provided. See [updates](../../../docs/publication/PUBLIC_UPDATES.md).
 
 ---
 
@@ -26,4 +26,4 @@ python -B scripts/build_pixel_research.py --compiler zig --build-dir ./outputs/p
 
 从根目录执行，使用 Python 3.11+ 和 Zig 0.13.0。输入自造，不访问相机。普通内存与[固定文件算法](Fixtures/frozen-row-merge/README.md)的像素对照、跨批次和失败释放通过，另有十个 C 组件与十一项 Python 检查。
 
-可选工具需要 NumPy、tifffile、rawpy、Pillow 或 libjpeg，未纳入默认测试；DNG 仅为测试容器。公开内容不提供真实拍摄、原厂显影、3FR、相册或 HEIF 后端。详见 [公开更新](../../../PUBLIC_UPDATES.md)。
+可选工具需要 NumPy、tifffile、rawpy、Pillow 或 libjpeg，未纳入默认测试；DNG 仅为测试容器。公开内容不提供真实拍摄、原厂显影、3FR、相册或 HEIF 后端。详见 [公开更新](../../../docs/publication/PUBLIC_UPDATES.md)。

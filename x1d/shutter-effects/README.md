@@ -7,7 +7,7 @@ Original UI and state logic, with offline components only.
 - `audio_route.h`: an abstract backend policy; no device backend is provided.
 - `CodeTests/audio_route_test.cpp`: nine substitute scenarios passed.
 
-No recordings, generated audio, fonts or manufacturer UI assets are bundled. Animation duration is a design value, not a measured camera blackout time. See [build guide](../../BUILDABILITY.md) and [index](../../README.md).
+No recordings, generated audio, fonts or manufacturer UI assets are bundled. Animation duration is a design value, not a measured camera blackout time. See [build guide](../../docs/build/BUILDABILITY.md) and [index](../../README.md).
 
 ---
 
@@ -20,6 +20,6 @@ No recordings, generated audio, fonts or manufacturer UI assets are bundled. Ani
 - `audio_route.h`：抽象读写后端的状态策略，本目录不提供设备后端。
 - `CodeTests/audio_route_test.cpp`：九项替身测试已通过。
 
-未附带录音、合成音频、字体或原厂界面资源。这里的动画时长是设计值，不是对相机黑屏时间的测量。构建方法见 [根目录说明](../../BUILDABILITY.md)。
+未附带录音、合成音频、字体或原厂界面资源。这里的动画时长是设计值，不是对相机黑屏时间的测量。构建方法见 [根目录说明](../../docs/build/BUILDABILITY.md)。
 
 当前组件与机型关系见 [公开索引](../../README.md)。

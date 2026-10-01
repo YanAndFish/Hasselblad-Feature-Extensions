@@ -8,7 +8,7 @@
   "history_rewritten": false,
   "records": [
     {
-      "path": "PUBLICATION_STATUS.md",
+      "path": "docs/publication/PUBLICATION_STATUS.md",
       "purpose": "自写验证入口、通用内存视图或公开范围说明",
       "origin": "本次公开整理的原创修改",
       "creation_basis": "从项目自写实现归纳；没有复制厂商资源或分析正文",
@@ -17,14 +17,16 @@
       "notices": "保留原有许可与必要的外部参考链接",
       "changes": [
         "新增说明或通用适配；不把候选测试标成设备或法律验收",
-        "本次统一更新公开文档，保留组件验证边界"
+        "本次统一更新公开文档，保留组件验证边界",
+        "按用途归档并更新引用，不改变组件执行逻辑"
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "5edebc98ad3ed824ebd697865669d32bab902568f825d6f1ece4607d96ec7160"
+      "public_sha256": "fd6db683b79c7345ad6ca3656a7256c9347b09bef066d6b9f2afc881c5e0886c",
+      "previous_path": "PUBLICATION_STATUS.md"
     },
     {
-      "path": "PUBLIC_UPDATES.md",
+      "path": "docs/publication/PUBLIC_UPDATES.md",
       "purpose": "自写验证入口、通用内存视图或公开范围说明",
       "origin": "本次公开整理的原创修改",
       "creation_basis": "从项目自写实现归纳；没有复制厂商资源或分析正文",
@@ -33,11 +35,13 @@
       "notices": "保留原有许可与必要的外部参考链接",
       "changes": [
         "新增说明或通用适配；不把候选测试标成设备或法律验收",
-        "本次统一更新公开文档，保留组件验证边界"
+        "本次统一更新公开文档，保留组件验证边界",
+        "按用途归档并更新引用，不改变组件执行逻辑"
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "88a1162f9a406baec172c9b7dd68c92872f27aabe4f677fe35bf19e0ec64f922"
+      "public_sha256": "b2cf5426485f9bdee01d006750aab8ecc5dfacbdd84065ade64d87302ab5d611",
+      "previous_path": "PUBLIC_UPDATES.md"
     },
     {
       "path": "README.md",
@@ -54,7 +58,7 @@
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "221417f47cb2ea83ab5a6b6214bd506b90fca446e496b9e1ec27415fc752da9b"
+      "public_sha256": "f0a370b1a77b102f2ce64e217adf6a1b640dd71a299fb7464a607a45a50b6a5e"
     },
     {
       "path": "publication/x2d-update-validation.json",
@@ -126,7 +130,7 @@
       "review": "旧内容不纳入本轮公开候选；替代说明可纳入候选",
       "dependencies": "旧分析链不再提供；相关功能待独立重新实现",
       "prior_public_sha256": "391172af7ba9dc7c500919a50f6ce28412815aa3a3a045b8b09e426dee4c9ba5",
-      "public_sha256": "5c240450415520ca90d7f597b964649e23cd94148e35b7e35eda063945aeb6ad"
+      "public_sha256": "301804b58b2951c3121cfc8ee5276d40efafa5f83873bfc5c9d53721656835c9"
     },
     {
       "path": "tools/inspect_phocus.py",
@@ -140,7 +144,7 @@
       "review": "旧内容不纳入本轮公开候选；替代说明可纳入候选",
       "dependencies": "旧分析链不再提供；相关功能待独立重新实现",
       "prior_public_sha256": "772f07c99a52c18f4658042c3bc55759c6531c4d9097bee1752ad10304b0bf4c",
-      "public_sha256": "5c240450415520ca90d7f597b964649e23cd94148e35b7e35eda063945aeb6ad"
+      "public_sha256": "301804b58b2951c3121cfc8ee5276d40efafa5f83873bfc5c9d53721656835c9"
     },
     {
       "path": "tools/trace_firmware_observer.py",
@@ -154,7 +158,7 @@
       "review": "旧内容不纳入本轮公开候选；替代说明可纳入候选",
       "dependencies": "旧分析链不再提供；相关功能待独立重新实现",
       "prior_public_sha256": "1317f068cda18cd1b46a5d661be13409357f113e463f0190b30ee206f4aa5b2a",
-      "public_sha256": "5c240450415520ca90d7f597b964649e23cd94148e35b7e35eda063945aeb6ad"
+      "public_sha256": "301804b58b2951c3121cfc8ee5276d40efafa5f83873bfc5c9d53721656835c9"
     },
     {
       "path": "x1d/bluetooth-experiment/extract_x1d_ii.py",
@@ -168,7 +172,7 @@
       "review": "旧内容不纳入本轮公开候选；替代说明可纳入候选",
       "dependencies": "旧分析链不再提供；相关功能待独立重新实现",
       "prior_public_sha256": "7b4aaab608697d245fcdb17acc2edb49cd5f94562fe7a85e73647cf4afd8b2db",
-      "public_sha256": "5c240450415520ca90d7f597b964649e23cd94148e35b7e35eda063945aeb6ad"
+      "public_sha256": "301804b58b2951c3121cfc8ee5276d40efafa5f83873bfc5c9d53721656835c9"
     },
     {
       "path": "x2d/CodeTests/display_controls/README.md",
@@ -185,7 +189,7 @@
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "6362fcf99b6b8a7119bf6e50d18f38968a9850a19a0c24b13c3642f03bafae51"
+      "public_sha256": "7da43d295007418080d25309e542d0320d93c81fc7d91681e55e916396e612fe"
     },
     {
       "path": "x2d/CodeTests/face_edge_fix/EyePreferencePolicy.js",
@@ -323,7 +327,7 @@
       ],
       "review": "可纳入候选",
       "dependencies": "文档无执行依赖；构建入口显式提供Zig和输出位置",
-      "public_sha256": "d64179fcb72e80f7f67e47940c751323fb480eacfc1bb751905a141fd29dddf8"
+      "public_sha256": "0b49b61d2d776635c772488ac488c5e03fdf4ae2cb53f10e5b1609f14c9d9f9a"
     },
     {
       "path": "x2d/CodeTests/pixel_shift_rgb/add_native_jpeg_preview.py",
@@ -1454,7 +1458,7 @@
       "review": "旧内容不纳入本轮公开候选；替代说明可纳入候选",
       "dependencies": "旧分析链不再提供；相关功能待独立重新实现",
       "prior_public_sha256": "83cc0371241e8d824b50e4fee555e752e9564cfaea0e6620458ae8d2926f0aca",
-      "public_sha256": "5c240450415520ca90d7f597b964649e23cd94148e35b7e35eda063945aeb6ad"
+      "public_sha256": "301804b58b2951c3121cfc8ee5276d40efafa5f83873bfc5c9d53721656835c9"
     }
   ],
   "publication_authorized": true,

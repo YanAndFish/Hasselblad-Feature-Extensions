@@ -12,4 +12,4 @@
 
 全部 Markdown 纳入本轮核对；旧分析与施工记录改为主题摘要，规则及许可声明保留。Git 历史没有改写，旧源码全面审核与新增内容检查分开。
 
-详见 [更新](PUBLIC_UPDATES.md)、[构建](BUILDABILITY.md)、[输入](BUILD_INPUTS.md)和[来源规则](SOURCE_REVIEW.md)。
+详见 [更新](PUBLIC_UPDATES.md)、[构建](../build/BUILDABILITY.md)、[输入](../build/BUILD_INPUTS.md)和[来源规则](SOURCE_REVIEW.md)。

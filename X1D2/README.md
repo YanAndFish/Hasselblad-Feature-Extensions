@@ -27,7 +27,7 @@ python -B scripts/build_x1dii_detector.py --compiler zig --build-dir ./outputs/x
 
 Original project excerpts use [MIT](../LICENSE). The detector comes from the fixed [ShiqiYu/libfacedetection revision](https://github.com/ShiqiYu/libfacedetection/tree/acf7b254121927e7dced30e233a2e03119f28ea2). Four source files and LICENSE match upstream byte for byte and retain [BSD-3-Clause](face-afs/vendor/libfacedetection/LICENSE). See [SOURCE.md](face-afs/vendor/libfacedetection/SOURCE.md).
 
-No device installer, manufacturer resources, photographs, runtime records or on-camera integration dependencies are supplied. See [publication scope](../PUBLICATION_SCOPE.md).
+No device installer, manufacturer resources, photographs, runtime records or on-camera integration dependencies are supplied. See [publication scope](../docs/publication/PUBLICATION_SCOPE.md).
 
 ---
 
@@ -60,4 +60,4 @@ python -B scripts/build_x1dii_detector.py --compiler zig --build-dir ./outputs/x
 
 项目自写片段适用根目录 [MIT](../LICENSE)。检测库来自 [ShiqiYu/libfacedetection](https://github.com/ShiqiYu/libfacedetection/tree/acf7b254121927e7dced30e233a2e03119f28ea2)，四份源码及 LICENSE 与固定上游逐字节一致，适用原始 [BSD-3-Clause](face-afs/vendor/libfacedetection/LICENSE)。来源见 [SOURCE.md](face-afs/vendor/libfacedetection/SOURCE.md)。
 
-不提供设备安装包、厂商资源、照片、运行记录或机内接入依赖，详见 [公开范围](../PUBLICATION_SCOPE.md)。
+不提供设备安装包、厂商资源、照片、运行记录或机内接入依赖，详见 [公开范围](../docs/publication/PUBLICATION_SCOPE.md)。
