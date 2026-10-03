@@ -2,6 +2,16 @@
 
 An independent, unofficial source repository for camera-feature research. It presents selected, sanitized original algorithms, UI components, and offline tests. Main development remains in a separate research project. This repository does not currently provide a complete installable camera update.
 
+## 四亿像素 JPEG 实拍对比 / 400 MP JPEG detail comparison
+
+![左：四亿像素 JPEG 放大 400%；右：一亿像素 JPEG 放大 800%](docs/showcase/assets/x2d-408mp-vs-100mp-detail.png)
+
+左侧四亿像素放大 **400%**，右侧一亿像素放大 **800%**，以相近的主体显示大小比较。观察空调格栅的细线分离、交叉处和边缘轮廓，可以直观看到这组实拍样张的细节差异。
+
+Left: **400 MP at 400%**. Right: **100 MP at 800%**, at approximately matched subject display size. Compare the grille's fine lines, intersections and edge definition.
+
+[查看完整截图和对比说明 / Full screenshot and comparison notes](docs/showcase/X2D_408MP_DETAIL_COMPARISON.md)。这是开发版 JPEG 的实拍展示，包含锐化处理；不代表受控实验测得的分辨率倍数，也不代表本公开仓库已提供完整安装包。
+
 ## Contents and status
 
 | Area | Entry | Public scope |
